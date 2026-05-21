@@ -1,0 +1,218 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { ArrowUpRight } from 'lucide-react'
+
+export default function Footer() {
+  const year = new Date().getFullYear()
+
+  return (
+    <footer className="relative overflow-hidden bg-[#14263F] text-white">
+
+      {/* GLOW */}
+      <div className="absolute -top-40 right-0 w-[400px] h-[400px] bg-orange-500/10 blur-3xl rounded-full" />
+
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-400/10 blur-3xl rounded-full" />
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-10">
+
+        {/* TOP */}
+        <div className="py-20 flex flex-col lg:flex-row justify-between gap-16">
+
+          {/* LEFT */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="max-w-xl"
+          >
+
+            {/* LOGO */}
+            <img
+              src="/logooo.png"
+              alt="Roota Growth"
+              className="
+  h-20
+  md:h-24
+  lg:h-28
+  w-auto
+  object-contain
+  mb-8
+"
+            />
+
+            {/* OFFICE */}
+            <div className="space-y-7 text-white/70 text-[15px] leading-relaxed">
+
+              <div>
+
+                <p className="font-semibold text-white mb-3">
+                  Office Location
+                </p>
+
+                <p>
+                  Roota Growth
+                  <br />
+                  Galvanistraat 265
+                  <br />
+                  3026 AD
+                  <br />
+                  Rotterdam, The Netherlands
+                </p>
+
+              </div>
+
+              <div className="space-y-1">
+
+                <p>
+                  Chamber of Commerce: 42052592
+                </p>
+
+                <p>
+                  VAT Number: NL005458566B84
+                </p>
+
+              </div>
+
+            </div>
+
+          </motion.div>
+
+          {/* RIGHT */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.7,
+              delay: 0.1
+            }}
+            className="
+              flex
+              flex-col
+              items-start
+              lg:items-end
+              justify-start
+              gap-6
+            "
+          >
+
+            {/* EMAIL */}
+            <a
+              href="mailto:info@roota.nl"
+              className="
+                group
+                inline-flex
+                items-center
+                gap-3
+                text-lg
+                md:text-xl
+                font-medium
+                hover:text-orange-400
+                transition
+              "
+            >
+
+              Roota.nl
+
+              <ArrowUpRight
+                size={18}
+                className="
+                  group-hover:translate-x-1
+                  group-hover:-translate-y-1
+                  transition
+                "
+              />
+
+            </a>
+
+            {/* LINKEDIN */}
+            <a
+              href="https://www.linkedin.com/company/linkedin.com.in.rootagrowth/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                flex
+                items-center
+                gap-3
+                text-white/60
+                hover:text-orange-400
+                transition
+              "
+            >
+
+              <div
+                className="
+                  w-11
+                  h-11
+                  rounded-full
+                  border
+                  border-white/10
+                  bg-white/5
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+
+                <img
+                  src="/linkedin.png"
+                  alt="LinkedIn"
+                  className="w-5 h-5 object-contain"
+                />
+
+              </div>
+
+              <span>
+                LinkedIn
+              </span>
+
+            </a>
+
+          </motion.div>
+
+        </div>
+
+        {/* BOTTOM */}
+        <div
+          className="
+            border-t
+            border-white/10
+            py-6
+            flex
+            flex-col
+            md:flex-row
+            items-center
+            justify-between
+            gap-4
+          "
+        >
+
+          <p className="text-sm text-white/40">
+            © {year} Roota Growth. All rights reserved.
+          </p>
+
+          <div className="flex gap-6 text-sm text-white/40">
+
+            <span className="hover:text-white transition cursor-pointer">
+              Privacy
+            </span>
+
+            <span className="hover:text-white transition cursor-pointer">
+              Terms
+            </span>
+
+            <span className="hover:text-white transition cursor-pointer">
+              Careers
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </footer>
+  )
+}
