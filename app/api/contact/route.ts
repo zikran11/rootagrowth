@@ -18,7 +18,7 @@ export async function POST(req: Request) {
         const data = await resend.emails.send({
             from: 'Roota Contact <onboarding@resend.dev>',
 
-            to: ['ziikran123@gmail.com'],
+            to: [' info@roota.nl'],
 
             replyTo: email,
 
