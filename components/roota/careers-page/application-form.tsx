@@ -77,28 +77,45 @@ export default function ApplicationForm() {
       data.append('phone', formData.phone)
       data.append('position', formData.position)
       data.append('experienceLevel', formData.experienceLevel)
-      data.append('personalityRating', formData.personalityRating)
-      data.append('portfolioUrl', formData.portfolioUrl)
+      data.append(
+        'personalityRating',
+        formData.personalityRating
+      )
+      data.append(
+        'portfolioUrl',
+        formData.portfolioUrl
+      )
 
       if (formData.cvFile) {
         data.append('cvFile', formData.cvFile)
       }
 
       if (formData.portfolioFile) {
-        data.append('portfolioFile', formData.portfolioFile)
+        data.append(
+          'portfolioFile',
+          formData.portfolioFile
+        )
       }
 
       if (formData.coverLetterFile) {
-        data.append('coverLetterFile', formData.coverLetterFile)
+        data.append(
+          'coverLetterFile',
+          formData.coverLetterFile
+        )
       }
 
-      const response = await fetch('/api/application', {
-        method: 'POST',
-        body: data,
-      })
+      const response = await fetch(
+        '/api/application',
+        {
+          method: 'POST',
+          body: data,
+        }
+      )
 
       if (!response.ok) {
-        throw new Error('Failed to send application')
+        throw new Error(
+          'Failed to send application'
+        )
       }
 
       setSubmitted(true)
@@ -123,50 +140,77 @@ export default function ApplicationForm() {
   }
 
   return (
-    <section className="py-24 md:py-32 bg-white">
-      <div className="max-w-3xl mx-auto px-6 md:px-10">
+    <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
+
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
 
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="mb-12 text-center"
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            margin: '-50px',
+          }}
+          transition={{
+            duration: 0.6,
+            ease: 'easeOut',
+          }}
+          className="mb-10 md:mb-12 text-center"
         >
 
-          {/* GLASS CAREER BADGE */}
           <div className="inline-flex items-center justify-center px-4 py-1 rounded-full bg-white/40 backdrop-blur-md border border-white/50 shadow-md mb-4">
-            <p className="text-sm font-medium text-orange-500">
+
+            <p className="text-xs sm:text-sm font-medium text-orange-500">
               {t.applicationForm.badge}
             </p>
+
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-900 tracking-tight mb-4">
             {t.applicationForm.title}
           </h2>
 
-          <p className="text-base text-stone-500 leading-relaxed max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-stone-500 leading-relaxed max-w-xl mx-auto">
             {t.applicationForm.description}
           </p>
+
         </motion.div>
 
         {/* FORM */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-          className="bg-stone-50 border border-stone-200 rounded-2xl p-8 md:p-10"
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            margin: '-50px',
+          }}
+          transition={{
+            duration: 0.6,
+            delay: 0.1,
+            ease: 'easeOut',
+          }}
+          className="bg-stone-50 border border-stone-200 rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10"
         >
+
           {submitted ? (
+
             <div className="text-center py-12">
+
               <div className="w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+
                 <ArrowRight
                   className="text-orange-500 rotate-45"
                   size={24}
                   strokeWidth={1.5}
                 />
+
               </div>
 
               <h3 className="text-xl font-semibold text-stone-900 mb-2">
@@ -174,301 +218,468 @@ export default function ApplicationForm() {
               </h3>
 
               <p className="text-sm text-stone-500">
-                {t.applicationForm.successDescription}
+                {
+                  t.applicationForm
+                    .successDescription
+                }
               </p>
+
             </div>
+
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-5 md:space-y-6"
+            >
 
               {/* NAME + EMAIL */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
                 <div className="space-y-2">
+
                   <label className="text-sm font-medium text-stone-700">
-                    {t.applicationForm.fullNameLabel}
+                    {
+                      t.applicationForm
+                        .fullNameLabel
+                    }
                   </label>
 
                   <input
                     type="text"
                     name="fullName"
-                    value={formData.fullName}
-                    onChange={handleInputChange}
-                    placeholder={t.applicationForm.fullNamePlaceholder}
+                    value={
+                      formData.fullName
+                    }
+                    onChange={
+                      handleInputChange
+                    }
+                    placeholder={
+                      t.applicationForm
+                        .fullNamePlaceholder
+                    }
                     required
-                    className="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-orange-300 transition-colors text-sm"
+                    className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm"
                   />
+
                 </div>
 
                 <div className="space-y-2">
+
                   <label className="text-sm font-medium text-stone-700">
-                    {t.applicationForm.emailLabel}
+                    {
+                      t.applicationForm
+                        .emailLabel
+                    }
                   </label>
 
                   <input
                     type="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder={t.applicationForm.emailPlaceholder}
+                    value={
+                      formData.email
+                    }
+                    onChange={
+                      handleInputChange
+                    }
+                    placeholder={
+                      t.applicationForm
+                        .emailPlaceholder
+                    }
                     required
-                    className="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-orange-300 transition-colors text-sm"
+                    className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm"
                   />
+
                 </div>
+
               </div>
 
               {/* PHONE + POSITION */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
                 <div className="space-y-2">
+
                   <label className="text-sm font-medium text-stone-700">
-                    {t.applicationForm.phoneLabel}
+                    {
+                      t.applicationForm
+                        .phoneLabel
+                    }
                   </label>
 
                   <input
                     type="tel"
                     name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder={t.applicationForm.phonePlaceholder}
+                    value={
+                      formData.phone
+                    }
+                    onChange={
+                      handleInputChange
+                    }
+                    placeholder={
+                      t.applicationForm
+                        .phonePlaceholder
+                    }
                     required
-                    className="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-orange-300 transition-colors text-sm"
+                    className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm"
                   />
+
                 </div>
 
                 <div className="space-y-2">
+
                   <label className="text-sm font-medium text-stone-700">
-                    {t.applicationForm.positionLabel}
+                    {
+                      t.applicationForm
+                        .positionLabel
+                    }
                   </label>
 
-                 <select
-  name="position"
-  value={formData.position}
-  onChange={handleInputChange}
-  required
-  className="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 focus:outline-none focus:border-orange-300 transition-colors text-sm"
->
-  <option value="" disabled>
-    {t.applicationForm.positionPlaceholder}
-  </option>
+                  <select
+                    name="position"
+                    value={
+                      formData.position
+                    }
+                    onChange={
+                      handleInputChange
+                    }
+                    required
+                    className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm"
+                  >
 
-  {/* 1. AI AUTOMATION */}
-  <option value="ai-automation">
-    {t.applicationForm.positions.aiAutomation}
-  </option>
+                    <option
+                      value=""
+                      disabled
+                    >
+                      {
+                        t.applicationForm
+                          .positionPlaceholder
+                      }
+                    </option>
 
-  {/* 2. APPLICATION DEVELOPMENT */}
-  <option value="application">
-    {t.applicationForm.positions.application}
-  </option>
+                    <option value="ai-automation">
+                      {
+                        t
+                          .applicationForm
+                          .positions
+                          .aiAutomation
+                      }
+                    </option>
 
-  {/* 3. FULLSTACK */}
-  <option value="fullstack">
-    {t.applicationForm.positions.fullstack}
-  </option>
+                    <option value="application">
+                      {
+                        t
+                          .applicationForm
+                          .positions
+                          .application
+                      }
+                    </option>
 
-  {/* 4. BACKEND */}
-  <option value="backend">
-    {t.applicationForm.positions.backend}
-  </option>
+                    <option value="fullstack">
+                      {
+                        t
+                          .applicationForm
+                          .positions
+                          .fullstack
+                      }
+                    </option>
 
-  {/* 5. FRONTEND */}
-  <option value="frontend">
-    {t.applicationForm.positions.frontend}
-  </option>
+                    <option value="backend">
+                      {
+                        t
+                          .applicationForm
+                          .positions
+                          .backend
+                      }
+                    </option>
 
-  {/* 6. UI/UX */}
-  <option value="uiux">
-    {t.applicationForm.positions.uiux}
-  </option>
-</select>
+                    <option value="frontend">
+                      {
+                        t
+                          .applicationForm
+                          .positions
+                          .frontend
+                      }
+                    </option>
+
+                    <option value="uiux">
+                      {
+                        t
+                          .applicationForm
+                          .positions
+                          .uiux
+                      }
+                    </option>
+
+                  </select>
+
                 </div>
+
               </div>
 
               {/* EXPERIENCE */}
               <div className="space-y-2">
+
                 <label className="text-sm font-medium text-stone-700">
-                  {t.applicationForm.experienceLabel}
+                  {
+                    t.applicationForm
+                      .experienceLabel
+                  }
                 </label>
 
                 <select
                   name="experienceLevel"
-                  value={formData.experienceLevel}
-                  onChange={handleInputChange}
+                  value={
+                    formData
+                      .experienceLevel
+                  }
+                  onChange={
+                    handleInputChange
+                  }
                   required
-                  className="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 focus:outline-none focus:border-orange-300 transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm"
                 >
-                  <option value="" disabled>
-                    {t.applicationForm.experiencePlaceholder}
+
+                  <option
+                    value=""
+                    disabled
+                  >
+                    {
+                      t.applicationForm
+                        .experiencePlaceholder
+                    }
                   </option>
 
                   <option value="junior">
-                    {t.applicationForm.experienceLevels.junior}
+                    {
+                      t
+                        .applicationForm
+                        .experienceLevels
+                        .junior
+                    }
                   </option>
 
                   <option value="mid">
-                    {t.applicationForm.experienceLevels.mid}
+                    {
+                      t
+                        .applicationForm
+                        .experienceLevels
+                        .mid
+                    }
                   </option>
 
                   <option value="senior">
-                    {t.applicationForm.experienceLevels.senior}
+                    {
+                      t
+                        .applicationForm
+                        .experienceLevels
+                        .senior
+                    }
                   </option>
+
                 </select>
+
               </div>
 
               {/* PERSONALITY */}
               <div className="space-y-2">
+
                 <label className="text-sm font-medium text-stone-700">
-                  {t.applicationForm.personalityLabel}
+                  {
+                    t.applicationForm
+                      .personalityLabel
+                  }
                 </label>
 
                 <p className="text-xs text-stone-400">
-                  {t.applicationForm.personalityDescription}
+                  {
+                    t.applicationForm
+                      .personalityDescription
+                  }
                 </p>
 
                 <input
                   type="text"
                   name="personalityRating"
-                  value={formData.personalityRating}
-                  onChange={handleInputChange}
-                  placeholder={t.applicationForm.personalityPlaceholder}
+                  value={
+                    formData
+                      .personalityRating
+                  }
+                  onChange={
+                    handleInputChange
+                  }
+                  placeholder={
+                    t.applicationForm
+                      .personalityPlaceholder
+                  }
                   required
-                  className="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-orange-300 transition-colors text-sm"
+                  className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm"
                 />
+
               </div>
 
               {/* PORTFOLIO URL */}
               <div className="space-y-2">
+
                 <label className="text-sm font-medium text-stone-700">
-                  {t.applicationForm.portfolioUrlLabel}
+                  {
+                    t.applicationForm
+                      .portfolioUrlLabel
+                  }
                 </label>
 
                 <input
                   type="url"
                   name="portfolioUrl"
-                  value={formData.portfolioUrl}
-                  onChange={handleInputChange}
-                  placeholder={t.applicationForm.portfolioUrlPlaceholder}
-                  className="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-orange-300 transition-colors text-sm"
+                  value={
+                    formData.portfolioUrl
+                  }
+                  onChange={
+                    handleInputChange
+                  }
+                  placeholder={
+                    t.applicationForm
+                      .portfolioUrlPlaceholder
+                  }
+                  className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm"
                 />
+
               </div>
 
               {/* FILES */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-                {/* CV */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-stone-700">
-                    {t.applicationForm.cvLabel}
-                  </label>
+                {[
+                  {
+                    label:
+                      t.applicationForm
+                        .cvLabel,
+                    file:
+                      formData.cvFile,
+                    text:
+                      t.applicationForm
+                        .uploadCv,
+                    accept:
+                      '.pdf,.doc,.docx',
+                    key: 'cvFile',
+                  },
+                  {
+                    label:
+                      t.applicationForm
+                        .portfolioLabel,
+                    file:
+                      formData
+                        .portfolioFile,
+                    text:
+                      t.applicationForm
+                        .uploadPortfolio,
+                    accept:
+                      '.zip,.pdf,.jpg,.png',
+                    key:
+                      'portfolioFile',
+                  },
+                  {
+                    label:
+                      t.applicationForm
+                        .coverLetterLabel,
+                    file:
+                      formData
+                        .coverLetterFile,
+                    text:
+                      t.applicationForm
+                        .uploadCoverLetter,
+                    accept:
+                      '.pdf,.doc,.docx',
+                    key:
+                      'coverLetterFile',
+                  },
+                ].map(item => (
+                  <div
+                    key={item.key}
+                    className="space-y-2"
+                  >
 
-                  <label className="block px-4 py-6 bg-white border-2 border-dashed border-stone-200 rounded-lg cursor-pointer text-center">
-                    <Upload
-                      size={18}
-                      className="mx-auto mb-2 text-stone-400"
-                    />
+                    <label className="text-sm font-medium text-stone-700">
+                      {item.label}
+                    </label>
 
-                    <span className="text-xs text-stone-500">
-                      {formData.cvFile
-                        ? formData.cvFile.name
-                        : t.applicationForm.uploadCv}
-                    </span>
+                    <label className="block px-4 py-5 bg-white border-2 border-dashed border-stone-200 rounded-xl cursor-pointer text-center">
 
-                    <input
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      onChange={(e) => handleFileChange(e, 'cvFile')}
-                      className="hidden"
-                      required
-                    />
-                  </label>
-                </div>
+                      <Upload
+                        size={18}
+                        className="mx-auto mb-2 text-stone-400"
+                      />
 
-                {/* PORTFOLIO */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-stone-700">
-                    {t.applicationForm.portfolioLabel}
-                  </label>
+                      <span className="text-xs text-stone-500 break-all">
+                        {item.file
+                          ? item.file
+                              .name
+                          : item.text}
+                      </span>
 
-                  <label className="block px-4 py-6 bg-white border-2 border-dashed border-stone-200 rounded-lg cursor-pointer text-center">
-                    <Upload
-                      size={18}
-                      className="mx-auto mb-2 text-stone-400"
-                    />
+                      <input
+                        type="file"
+                        accept={
+                          item.accept
+                        }
+                        onChange={e =>
+                          handleFileChange(
+                            e,
+                            item.key
+                          )
+                        }
+                        className="hidden"
+                      />
 
-                    <span className="text-xs text-stone-500">
-                      {formData.portfolioFile
-                        ? formData.portfolioFile.name
-                        : t.applicationForm.uploadPortfolio}
-                    </span>
+                    </label>
 
-                    <input
-                      type="file"
-                      accept=".zip,.pdf,.jpg,.png"
-                      onChange={(e) =>
-                        handleFileChange(e, 'portfolioFile')
-                      }
-                      className="hidden"
-                    />
-                  </label>
-                </div>
+                  </div>
+                ))}
 
-                {/* COVER LETTER */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-stone-700">
-                    {t.applicationForm.coverLetterLabel}
-                  </label>
-
-                  <label className="block px-4 py-6 bg-white border-2 border-dashed border-stone-200 rounded-lg cursor-pointer text-center">
-                    <Upload
-                      size={18}
-                      className="mx-auto mb-2 text-stone-400"
-                    />
-
-                    <span className="text-xs text-stone-500">
-                      {formData.coverLetterFile
-                        ? formData.coverLetterFile.name
-                        : t.applicationForm.uploadCoverLetter}
-                    </span>
-
-                    <input
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      onChange={(e) =>
-                        handleFileChange(e, 'coverLetterFile')
-                      }
-                      className="hidden"
-                    />
-                  </label>
-                </div>
               </div>
 
-              {/* SUBMIT */}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-8 py-3.5 bg-blue-500 text-white font-semibold text-sm rounded-xl hover:bg-blue-400 transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full py-3 md:py-4 bg-blue-500 text-white rounded-xl text-sm font-semibold hover:bg-blue-400 transition flex items-center justify-center gap-2"
               >
+
                 {loading ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-stone-950 border-t-transparent rounded-full animate-spin" />
-                    {t.applicationForm.sending}
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    {
+                      t.applicationForm
+                        .sending
+                    }
                   </>
                 ) : (
                   <>
-                    {t.applicationForm.submit}
-                    <ArrowRight size={16} />
+                    {
+                      t.applicationForm
+                        .submit
+                    }
+                    <ArrowRight
+                      size={16}
+                    />
                   </>
                 )}
+
               </button>
 
               <p className="text-xs text-stone-400 text-center">
-                {t.applicationForm.footerText}
+                {
+                  t.applicationForm
+                    .footerText
+                }
               </p>
 
             </form>
+
           )}
+
         </motion.div>
+
       </div>
+
     </section>
   )
 }

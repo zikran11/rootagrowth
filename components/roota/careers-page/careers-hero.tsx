@@ -15,8 +15,9 @@ export default function CareersHero() {
   const locale = pathname.split('/')[1] || 'en'
 
   const t =
-    translations[locale as keyof typeof translations] ||
-    translations.en
+    translations[
+      locale as keyof typeof translations
+    ] || translations.en
 
   useEffect(() => {
     setMounted(true)
@@ -28,30 +29,39 @@ export default function CareersHero() {
     <section
       className="
         relative
+
         min-h-screen
+
         flex
         items-center
         justify-center
+
         overflow-hidden
+
         bg-[#030817]
+
+        px-5
       "
     >
 
-      {/* BACKGROUND GLOW */}
+      {/* BG GLOW */}
       <div
         className="
           absolute
           inset-0
+
           bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.14),transparent_45%)]
         "
       />
 
-      {/* HERO WRAPPER */}
       <div
         className="
           relative
-          flex
+
           w-full
+
+          flex
+          flex-col
           items-center
           justify-center
         "
@@ -72,54 +82,74 @@ export default function CareersHero() {
           }}
           className="
             relative
+
             flex
             items-center
             justify-center
-            -translate-y-8
-            md:-translate-y-12
+
+            -translate-y-4
+            md:-translate-y-10
           "
         >
+
           <Lottie
             animationData={servicesAnim}
             loop
             className="
-              h-[520px]
-              w-[520px]
+              w-[320px]
+              h-[320px]
+
+              sm:w-[420px]
+              sm:h-[420px]
+
+              md:w-[650px]
+              md:h-[650px]
+
+              lg:w-[720px]
+              lg:h-[720px]
+
               opacity-75
-              md:h-[720px]
-              md:w-[720px]
             "
           />
 
-          {/* DARK OVERLAY */}
           <div className="absolute inset-0 bg-black/15" />
 
-          {/* GLOW */}
           <div
             className="
               absolute
-              h-[380px]
-              w-[380px]
+
+              w-[220px]
+              h-[220px]
+
+              md:w-[380px]
+              md:h-[380px]
+
               bg-white/10
+
               blur-[120px]
             "
           />
+
         </motion.div>
 
         {/* TEXT */}
         <div
           className="
-            absolute
-            top-[74%]
+            relative
+
             z-20
-            w-full
-            -translate-y-1/2
-            px-6
+
+            -mt-10
+            md:-mt-24
+
             text-center
+
+            max-w-3xl
+
+            mx-auto
           "
         >
 
-          {/* TITLE */}
           <motion.h1
             initial={{
               opacity: 0,
@@ -134,18 +164,26 @@ export default function CareersHero() {
               delay: 0.1,
             }}
             className="
-              text-[26px]
+              text-[30px]
+
+              sm:text-[38px]
+
+              md:text-[52px]
+
               font-bold
-              leading-[1]
+
+              leading-[1.05]
+
               tracking-[-0.05em]
+
               text-white
-              md:text-[44px]
             "
           >
+
             {t.careersHero.title}
+
           </motion.h1>
 
-          {/* DESCRIPTION */}
           <motion.p
             initial={{
               opacity: 0,
@@ -160,33 +198,50 @@ export default function CareersHero() {
               delay: 0.2,
             }}
             className="
-              mx-auto
               mt-5
+
+              mx-auto
+
               max-w-xl
-              text-[13px]
+
+              text-sm
+              md:text-base
+
               leading-relaxed
+
               text-gray-400
-              md:text-[15px]
             "
           >
+
             {t.careersHero.description}
+
           </motion.p>
+
         </div>
+
       </div>
 
       {/* BOTTOM FADE */}
       <div
         className="
           absolute
+
           bottom-0
           left-0
-          h-32
+
+          h-24
+          md:h-32
+
           w-full
+
           bg-gradient-to-t
+
           from-[#030817]
+
           to-transparent
         "
       />
+
     </section>
   )
 }

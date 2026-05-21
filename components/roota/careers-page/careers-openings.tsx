@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { usePathname } from 'next/navigation'
@@ -7,19 +8,27 @@ import { usePathname } from 'next/navigation'
 import { translations } from '@/lib/translation'
 
 export default function CareersOpenings() {
+  const [activeCard, setActiveCard] = useState<
+    number | null
+  >(null)
+
   const pathname = usePathname()
-  const locale = pathname.split('/')[1] || 'en'
+
+  const locale =
+    pathname.split('/')[1] || 'en'
 
   const t =
-    translations[locale as keyof typeof translations] ||
-    translations.en
+    translations[
+      locale as keyof typeof translations
+    ] || translations.en
 
-  const openings = t.careersOpenings.jobs
+  const openings =
+    t.careersOpenings.jobs
 
   return (
-    <section className="bg-white py-32">
+    <section className="bg-white py-20 md:py-28 lg:py-32">
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
 
         {/* HEADER */}
         <motion.div
@@ -37,136 +46,268 @@ export default function CareersOpenings() {
           viewport={{
             once: true,
           }}
-          className="mb-20 text-center"
+          className="mb-14 md:mb-20 text-center"
         >
 
-          {/* TITLE */}
           <h2
             className="
-              mb-6
-              text-4xl
-              font-bold
-              leading-tight
-              tracking-tight
-              text-black
-              lg:text-5xl
-            "
+            mb-5
+
+            text-3xl
+            sm:text-4xl
+            lg:text-5xl
+
+            font-bold
+
+            leading-tight
+            tracking-tight
+
+            text-black
+          "
           >
+
             {t.careersOpenings.title}
+
           </h2>
 
-          {/* DESCRIPTION */}
           <p
             className="
-              mx-auto
-              max-w-2xl
-              text-lg
-              leading-relaxed
-              text-neutral-500
-            "
+            mx-auto
+
+            max-w-2xl
+
+            text-base
+            md:text-lg
+
+            leading-relaxed
+
+            text-neutral-500
+          "
           >
-            {t.careersOpenings.description}
+
+            {
+              t.careersOpenings
+                .description
+            }
+
           </p>
+
         </motion.div>
 
-        {/* OPENINGS */}
-        <div className="space-y-5">
+        {/* CARDS */}
+        <div className="space-y-4 md:space-y-5">
 
-          {openings.map((job, index) => (
-            <motion.div
-              key={index}
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.08,
-              }}
-              viewport={{
-                once: true,
-              }}
-              whileHover={{
-                y: -3,
-              }}
-              className="
-                group
-                cursor-pointer
-                rounded-3xl
-                border
-                border-neutral-200
-                bg-white
-                p-8
-                shadow-[0_10px_40px_rgba(0,0,0,0.04)]
-                transition-all
-                duration-300
-                hover:border-orange-200
-                hover:shadow-[0_15px_60px_rgba(0,0,0,0.08)]
-              "
-            >
+          {openings.map(
+            (job, index) => {
+              const active =
+                activeCard === index
 
-              <div className="flex items-center justify-between gap-6">
+              return (
+                <motion.div
+                  key={index}
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay:
+                      index * 0.08,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
 
-                {/* LEFT */}
-                <div className="flex-1">
+                  whileHover={{
+                    y: -5,
+                  }}
 
-                  {/* TITLE */}
-                  <h3
-                    className="
-                      mb-3
-                      text-xl
-                      font-semibold
-                      text-black
-                      transition-colors
-                      duration-300
-                      group-hover:text-orange-600
-                    "
-                  >
-                    {job.title}
-                  </h3>
+                  whileTap={{
+                    scale: 0.985,
+                  }}
 
-                  {/* DESCRIPTION */}
-                  <p
-                    className="
-                      max-w-3xl
-                      leading-relaxed
-                      text-neutral-600
-                    "
-                  >
-                    {job.description}
-                  </p>
-                </div>
+                  animate={
+                    active
+                      ? {
+                          y: -5,
+                        }
+                      : {
+                          y: 0,
+                        }
+                  }
 
-                {/* ICON */}
-                <div
-                  className="
-                    hidden
-                    h-12
-                    w-12
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-blue-50
+                  onClick={() =>
+                    setActiveCard(
+                      active
+                        ? null
+                        : index
+                    )
+                  }
+
+                  className={`
+                    group
+
+                    cursor-pointer
+
+                    rounded-2xl
+                    md:rounded-3xl
+
+                    border
+
+                    bg-white
+
+                    p-5
+                    md:p-8
+
+                    shadow-[0_10px_40px_rgba(0,0,0,0.04)]
+
                     transition-all
                     duration-300
-                    group-hover:scale-110
-                    md:flex
-                  "
+
+                    ${
+                      active
+                        ? `
+                        border-orange-200
+
+                        shadow-[0_15px_60px_rgba(0,0,0,0.08)]
+                      `
+                        : `
+                        border-neutral-200
+
+                        hover:border-orange-200
+
+                        hover:shadow-[0_15px_60px_rgba(0,0,0,0.08)]
+                      `
+                    }
+                  `}
                 >
-                  <ArrowRight
-                    size={20}
-                    className="text-blue-600"
-                  />
-                </div>
-              </div>
-            </motion.div>
-          ))}
+
+                  <div
+                    className="
+                    flex
+
+                    flex-col
+                    md:flex-row
+
+                    md:items-center
+
+                    justify-between
+
+                    gap-5
+                    md:gap-6
+                  "
+                  >
+
+                    {/* LEFT */}
+                    <div className="flex-1">
+
+                      <h3
+                        className={`
+                          mb-3
+
+                          text-lg
+                          md:text-xl
+
+                          font-semibold
+
+                          transition-colors
+                          duration-300
+
+                          ${
+                            active
+                              ? 'text-orange-600'
+                              : `
+                              text-black
+
+                              group-hover:text-orange-600
+                            `
+                          }
+                        `}
+                      >
+
+                        {job.title}
+
+                      </h3>
+
+                      <p
+                        className="
+                        max-w-3xl
+
+                        text-sm
+                        md:text-base
+
+                        leading-relaxed
+
+                        text-neutral-600
+                      "
+                      >
+
+                        {
+                          job.description
+                        }
+
+                      </p>
+
+                    </div>
+
+                    {/* ICON */}
+                    <div
+                      className={`
+                        flex
+
+                        h-11
+                        w-11
+
+                        md:h-12
+                        md:w-12
+
+                        shrink-0
+
+                        items-center
+                        justify-center
+
+                        rounded-full
+
+                        transition-all
+                        duration-300
+
+                        ${
+                          active
+                            ? `
+                            bg-blue-100
+                            scale-110
+                          `
+                            : `
+                            bg-blue-50
+
+                            group-hover:scale-110
+                          `
+                        }
+                      `}
+                    >
+
+                      <ArrowRight
+                        size={20}
+                        className="text-blue-600"
+                      />
+
+                    </div>
+
+                  </div>
+
+                </motion.div>
+              )
+            }
+          )}
+
         </div>
+
       </div>
+
     </section>
   )
 }

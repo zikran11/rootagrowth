@@ -86,71 +86,117 @@ export default function ContactSection() {
 
   return (
     <section className="min-h-screen bg-white text-black">
-      <div className="max-w-6xl mx-auto px-6 md:px-10 py-20">
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-16 sm:py-20 md:py-24">
 
         {/* HEADING */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          whileInView={{
+            opacity: 1,
+            y: 0
+          }}
+          transition={{
+            duration: 0.7
+          }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-14 md:mb-20"
         >
-          <div className="flex justify-center mb-8">
-            <div className="w-20 h-20 rounded-3xl bg-blue-100 flex items-center justify-center shadow-lg shadow-blue-100">
-              <MessageSquareMore className="w-10 h-10 text-blue-600" />
+
+          <div className="flex justify-center mb-6 md:mb-8">
+
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-blue-100 flex items-center justify-center shadow-lg shadow-blue-100">
+
+              <MessageSquareMore className="w-8 h-8 md:w-10 md:h-10 text-blue-600" />
+
             </div>
+
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-5 md:mb-6 tracking-tight">
+
             {t.contactSection.title}
+
             <br />
+
           </h1>
 
-          <p className="text-gray-500 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
+
             {t.contactSection.description}
+
           </p>
+
         </motion.div>
 
         {/* SUCCESS MESSAGE */}
         {isSubmitted && (
+
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-blue-50 border border-blue-200 rounded-3xl p-6 mb-10 flex items-center gap-4"
+            initial={{
+              opacity: 0,
+              scale: 0.95
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1
+            }}
+            className="bg-blue-50 border border-blue-200 rounded-3xl p-5 md:p-6 mb-8 md:mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-4"
           >
-            <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center">
+
+            <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
+
               <Check className="text-white" />
+
             </div>
 
             <div>
-              <h3 className="font-semibold text-xl text-black">
+
+              <h3 className="font-semibold text-lg md:text-xl text-black">
+
                 {t.contactSection.successTitle}
+
               </h3>
 
-              <p className="text-gray-600">
+              <p className="text-sm md:text-base text-gray-600">
+
                 {t.contactSection.successDescription}
+
               </p>
+
             </div>
+
           </motion.div>
+
         )}
 
         {/* FORM */}
         <motion.form
           onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{
+            opacity: 0,
+            y: 30
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0
+          }}
+          transition={{
+            duration: 0.7
+          }}
           viewport={{ once: true }}
-          className="space-y-8"
+          className="space-y-6 md:space-y-8"
         >
 
           {/* ROW 1 */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
             <div>
+
               <label className="block mb-3 text-sm font-medium text-gray-700">
+
                 {t.contactSection.fullNameLabel}
+
               </label>
 
               <input
@@ -158,15 +204,21 @@ export default function ContactSection() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder={t.contactSection.fullNamePlaceholder}
+                placeholder={
+                  t.contactSection.fullNamePlaceholder
+                }
                 required
-                className="w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-lg text-black placeholder:text-gray-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
+                className="w-full bg-white border border-gray-200 rounded-2xl px-4 md:px-5 py-3 md:py-4 text-base md:text-lg text-black placeholder:text-gray-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
               />
+
             </div>
 
             <div>
+
               <label className="block mb-3 text-sm font-medium text-gray-700">
+
                 {t.contactSection.emailLabel}
+
               </label>
 
               <input
@@ -174,20 +226,26 @@ export default function ContactSection() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder={t.contactSection.emailPlaceholder}
+                placeholder={
+                  t.contactSection.emailPlaceholder
+                }
                 required
-                className="w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-lg text-black placeholder:text-gray-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
+                className="w-full bg-white border border-gray-200 rounded-2xl px-4 md:px-5 py-3 md:py-4 text-base md:text-lg text-black placeholder:text-gray-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
               />
+
             </div>
 
           </div>
 
           {/* ROW 2 */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
             <div>
+
               <label className="block mb-3 text-sm font-medium text-gray-700">
+
                 {t.contactSection.companyLabel}
+
               </label>
 
               <input
@@ -195,35 +253,58 @@ export default function ContactSection() {
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
-                placeholder={t.contactSection.companyPlaceholder}
-                className="w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-lg text-black placeholder:text-gray-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
+                placeholder={
+                  t.contactSection.companyPlaceholder
+                }
+                className="w-full bg-white border border-gray-200 rounded-2xl px-4 md:px-5 py-3 md:py-4 text-base md:text-lg text-black placeholder:text-gray-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
               />
+
             </div>
 
             <div>
+
               <label className="block mb-3 text-sm font-medium text-gray-700">
+
                 {t.contactSection.serviceLabel}
+
               </label>
 
               <select
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-lg text-black focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
+                className="w-full bg-white border border-gray-200 rounded-2xl px-4 md:px-5 py-3 md:py-4 text-base md:text-lg text-black focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
               >
-                <option>{t.contactSection.services.development}</option>
-                <option>{t.contactSection.services.uiux}</option>
-                <option>{t.contactSection.services.graphic}</option>
-                <option>{t.contactSection.services.mobile}</option>
+
+                <option>
+                  {t.contactSection.services.development}
+                </option>
+
+                <option>
+                  {t.contactSection.services.uiux}
+                </option>
+
+                <option>
+                  {t.contactSection.services.graphic}
+                </option>
+
+                <option>
+                  {t.contactSection.services.mobile}
+                </option>
+
               </select>
+
             </div>
 
           </div>
 
           {/* MESSAGE */}
           <div>
+
             <label className="block mb-3 text-sm font-medium text-gray-700">
+
               {t.contactSection.messageLabel}
+
             </label>
 
             <textarea
@@ -231,21 +312,30 @@ export default function ContactSection() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder={t.contactSection.messagePlaceholder}
+              placeholder={
+                t.contactSection.messagePlaceholder
+              }
               required
-              className="w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-lg text-black placeholder:text-gray-400 resize-none focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
+              className="w-full bg-white border border-gray-200 rounded-2xl px-4 md:px-5 py-3 md:py-4 text-base md:text-lg text-black placeholder:text-gray-400 resize-none focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
             />
+
           </div>
 
           {/* BUTTON */}
-          <div className="flex justify-end">
+          <div className="flex justify-center md:justify-end">
+
             <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={{
+                scale: 1.03
+              }}
+              whileTap={{
+                scale: 0.97
+              }}
               type="submit"
               disabled={isLoading}
-              className="bg-blue-600 text-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg shadow-blue-200 flex items-center gap-3"
+              className="w-full md:w-auto justify-center bg-blue-600 text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg shadow-blue-200 flex items-center gap-3"
             >
+
               {isLoading ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -256,68 +346,98 @@ export default function ContactSection() {
                   {t.contactSection.send}
                 </>
               )}
+
             </motion.button>
+
           </div>
 
         </motion.form>
 
         {/* CONTACT INFO */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{
+            opacity: 0,
+            y: 30
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0
+          }}
+          transition={{
+            duration: 0.7
+          }}
           viewport={{ once: true }}
-          className="bg-gray-50 border border-gray-200 rounded-[32px] p-8 md:p-12 mt-24"
+          className="bg-gray-50 border border-gray-200 rounded-[32px] p-6 sm:p-8 md:p-12 mt-16 md:mt-24"
         >
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
 
-            {/* EMAIL */}
-            <div className="flex gap-5">
-              <div className="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center">
+            <div className="flex gap-4 md:gap-5">
+
+              <div className="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center shrink-0">
+
                 <Mail className="w-6 h-6 text-blue-600" />
+
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold mb-2 text-black">
+
+                <h3 className="text-xl md:text-2xl font-semibold mb-2">
+
                   {t.contactSection.emailTitle}
+
                 </h3>
 
-                <p className="text-gray-700 text-lg">
+                <p className="text-base md:text-lg text-gray-700">
                   info@roota.nl
                 </p>
 
                 <p className="text-gray-500 mt-1">
                   {t.contactSection.emailDescription}
                 </p>
+
               </div>
+
             </div>
 
-            {/* ADDRESS */}
-            <div className="flex gap-5">
-              <div className="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center">
+            <div className="flex gap-4 md:gap-5">
+
+              <div className="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center shrink-0">
+
                 <MapPin className="w-6 h-6 text-blue-600" />
+
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold mb-2 text-black">
+
+                <h3 className="text-xl md:text-2xl font-semibold mb-2">
+
                   {t.contactSection.addressTitle}
+
                 </h3>
 
-                <p className="text-gray-700 text-lg">
+                <p className="text-base md:text-lg text-gray-700">
+
                   Galvanistraat 265, 3029AD Rotterdam
+
                 </p>
 
                 <p className="text-gray-500 mt-1">
+
                   {t.contactSection.addressDescription}
+
                 </p>
+
               </div>
+
             </div>
 
           </div>
+
         </motion.div>
 
       </div>
+
     </section>
   )
 }

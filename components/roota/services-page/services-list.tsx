@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { usePathname } from 'next/navigation'
@@ -7,6 +8,8 @@ import { usePathname } from 'next/navigation'
 import { translations } from '@/lib/translation'
 
 export default function ServicesList() {
+  const [openCard, setOpenCard] = useState<number | null>(null)
+
   const pathname = usePathname()
   const locale = pathname.split('/')[1] || 'en'
 
@@ -14,10 +17,18 @@ export default function ServicesList() {
     translations[locale as keyof typeof translations] ||
     translations.en
 
-  return (
-    <section className="relative overflow-hidden bg-white py-28">
+  const toggleCard = (index: number) => {
+    if (window.innerWidth >= 1024) return
 
-      {/* ANIMATED GLOW */}
+    setOpenCard((prev) =>
+      prev === index ? null : index
+    )
+  }
+
+  return (
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20 md:py-24 lg:py-28">
+
+      {/* GLOW */}
       <motion.div
         animate={{
           x: [0, 40, 0],
@@ -33,49 +44,79 @@ export default function ServicesList() {
           absolute
           left-1/2
           top-0
-          h-[300px]
-          w-[700px]
+          h-[180px]
+          w-[320px]
+          sm:h-[220px]
+          sm:w-[450px]
+          md:h-[300px]
+          md:w-[700px]
           -translate-x-1/2
           bg-blue-500/10
-          blur-[160px]
+          blur-[120px]
+          md:blur-[160px]
         "
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
 
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="mb-20 text-center"
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          className="mb-12 md:mb-20 text-center"
         >
-
-
-          {/* TITLE */}
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.1,
+            }}
+            viewport={{
+              once: true,
+            }}
             className="
-              mx-auto max-w-4xl
-              text-3xl font-extrabold leading-[1.1]
-              text-black sm:text-4xl md:text-5xl
+              mx-auto
+              max-w-4xl
+              text-2xl
+              sm:text-3xl
+              md:text-4xl
+              lg:text-5xl
+              font-extrabold
+              leading-[1.1]
+              text-black
             "
           >
             {t.servicesList.title1}
             <br />
           </motion.h2>
-
         </motion.div>
 
         {/* CARDS */}
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
           variants={{
             hidden: {},
             show: {
@@ -84,112 +125,206 @@ export default function ServicesList() {
               },
             },
           }}
-          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            lg:grid-cols-3
+            gap-6
+            md:gap-8
+          "
         >
 
-          {t.servicesList.services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 80,
-                  scale: 0.92,
-                  filter: 'blur(10px)',
-                },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  filter: 'blur(0px)',
-                  transition: {
-                    duration: 0.9,
-                  },
-                },
-              }}
-              whileHover={{ y: -12, scale: 1.02 }}
-              className="
-                group overflow-hidden
-                rounded-[32px]
-                border border-blue-100
-                bg-gradient-to-b from-blue-50 to-white
-                shadow-[0_10px_50px_rgba(59,130,246,0.10)]
-                transition-all duration-500
-                hover:border-blue-300
-                hover:shadow-[0_0_60px_rgba(59,130,246,0.18)]
-              "
-            >
+          {t.servicesList.services.map(
+            (service, index) => {
 
-              {/* GIF tetap dari original component */}
-              <div className="relative h-[280px] overflow-hidden">
-                <img
-                  src={service.gif}
-                  alt={service.title}
+              const isOpen =
+                openCard === index
+
+              return (
+
+                <motion.div
+                  key={index}
+                  onClick={() =>
+                    toggleCard(index)
+                  }
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                      y: 80,
+                      scale: 0.92,
+                      filter:
+                        'blur(10px)',
+                    },
+
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      filter:
+                        'blur(0px)',
+
+                      transition: {
+                        duration: 0.9,
+                      },
+                    },
+                  }}
+                  whileHover={{
+                    y: -12,
+                    scale: 1.02,
+                  }}
                   className="
-    h-full w-full object-cover
-    transition duration-700
-    group-hover:scale-105
-  "
-                />
+                    group
+                    cursor-pointer
+                    overflow-hidden
+                    rounded-[24px]
+                    md:rounded-[32px]
+                    border
+                    border-blue-100
+                    bg-gradient-to-b
+                    from-blue-50
+                    to-white
+                    shadow-[0_10px_50px_rgba(59,130,246,0.10)]
+                    transition-all
+                    duration-500
+                    hover:border-blue-300
+                    hover:shadow-[0_0_60px_rgba(59,130,246,0.18)]
+                  "
+                >
 
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent" />
+                  {/* IMAGE */}
+                  <div className="relative h-[220px] sm:h-[240px] md:h-[280px] overflow-hidden">
 
-                <div className="
-                  absolute right-6 top-6
-                  flex h-12 w-12 items-center justify-center
-                  rounded-full border border-white/20
-                  bg-white/90 backdrop-blur-md
-                  group-hover:bg-blue-500
-                ">
-                  <ArrowUpRight
-                    size={20}
-                    className="text-blue-600 group-hover:text-white"
-                  />
-                </div>
-              </div>
+                    <img
+                      src={service.gif}
+                      alt={service.title}
+                      className="
+                        h-full
+                        w-full
+                        object-cover
+                        transition
+                        duration-700
+                        group-hover:scale-105
+                      "
+                    />
 
-              {/* CONTENT */}
-              <div className="p-8">
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent" />
 
-                <h3 className="text-2xl font-bold text-black">
-                  {service.title}
-                </h3>
+                    <div
+                      className="
+                        absolute
+                        right-4
+                        top-4
+                        md:right-6
+                        md:top-6
+                        flex
+                        h-10
+                        w-10
+                        md:h-12
+                        md:w-12
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/20
+                        bg-white/90
+                        backdrop-blur-md
+                        group-hover:bg-blue-500
+                      "
+                    >
 
-                <div className="
-                  max-h-0 overflow-hidden opacity-0
-                  transition-all duration-500
-                  group-hover:mt-6
-                  group-hover:max-h-[500px]
-                  group-hover:opacity-100
-                ">
+                      <ArrowUpRight
+                        size={18}
+                        className="
+                          text-blue-600
+                          group-hover:text-white
+                        "
+                      />
 
-                  <p className="leading-relaxed text-gray-600">
-                    {service.description}
-                  </p>
+                    </div>
 
-                  <div className="mt-6 space-y-4 border-t border-blue-100 pt-6">
-                    {service.features.map((feature, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-3 text-sm text-gray-700"
-                      >
-                        <div className="h-2 w-2 rounded-full bg-blue-500" />
-                        {feature}
-                      </div>
-                    ))}
                   </div>
 
-                  <p className="mt-6 text-sm font-medium text-blue-600">
-                    👉 {service.bottomText}
-                  </p>
+                  {/* CONTENT */}
+                  <div className="p-5 sm:p-6 md:p-8">
 
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                    <h3 className="text-xl md:text-2xl font-bold text-black">
+                      {service.title}
+                    </h3>
+
+                    <div
+                      className={`
+                        overflow-hidden
+                        transition-all
+                        duration-500
+
+                        ${
+                          isOpen
+                            ? 'max-h-[500px] opacity-100 mt-6'
+                            : 'max-h-0 opacity-0'
+                        }
+
+                        lg:max-h-0
+                        lg:opacity-0
+                        lg:mt-0
+
+                        lg:group-hover:mt-6
+                        lg:group-hover:max-h-[500px]
+                        lg:group-hover:opacity-100
+                      `}
+                    >
+
+                      <p className="leading-relaxed text-sm md:text-base text-gray-600">
+                        {service.description}
+                      </p>
+
+                      <div className="mt-6 space-y-3 md:space-y-4 border-t border-blue-100 pt-6">
+
+                        {service.features.map(
+                          (
+                            feature,
+                            i
+                          ) => (
+
+                            <div
+                              key={i}
+                              className="
+                                flex
+                                items-center
+                                gap-3
+                                text-sm
+                                text-gray-700
+                              "
+                            >
+
+                              <div className="h-2 w-2 rounded-full bg-blue-500" />
+
+                              {feature}
+
+                            </div>
+                          )
+                        )}
+
+                      </div>
+
+                      <p className="mt-6 text-sm font-medium text-blue-600">
+                        👉 {service.bottomText}
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </motion.div>
+
+              )
+            }
+          )}
+
         </motion.div>
 
       </div>
+
     </section>
   )
 }

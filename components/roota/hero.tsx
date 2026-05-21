@@ -25,39 +25,48 @@ export default function Hero() {
     <section
       className="
         relative
-        min-h-screen
+        min-h-[100svh]
         overflow-hidden
         bg-[#f5f5f3]
+
         flex
         items-center
         justify-center
-        px-6
-        pt-32
-        pb-20
+
+        px-4
+        sm:px-6
+
+        pt-24
+        sm:pt-28
+        md:pt-32
+
+        pb-16
+        sm:pb-20
       "
     >
 
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 overflow-hidden">
 
-        {/* MAIN LIGHT */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.97)_0%,rgba(245,245,243,1)_72%)]
-          "
-        />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.97)_0%,rgba(245,245,243,1)_72%)]" />
 
         {/* LEFT GLOW */}
         <div
           className="
             absolute
-            left-[-10%]
+            left-[-20%]
             top-1/2
             -translate-y-1/2
-            w-[450px]
-            h-[450px]
+
+            w-[220px]
+            h-[220px]
+
+            sm:w-[300px]
+            sm:h-[300px]
+
+            md:w-[450px]
+            md:h-[450px]
+
             rounded-full
             bg-blue-200/20
             blur-3xl
@@ -68,11 +77,19 @@ export default function Hero() {
         <div
           className="
             absolute
-            right-[-10%]
+            right-[-20%]
             top-1/2
             -translate-y-1/2
-            w-[450px]
-            h-[450px]
+
+            w-[220px]
+            h-[220px]
+
+            sm:w-[300px]
+            sm:h-[300px]
+
+            md:w-[450px]
+            md:h-[450px]
+
             rounded-full
             bg-orange-200/20
             blur-3xl
@@ -94,10 +111,19 @@ export default function Hero() {
             absolute
             left-1/2
             top-[47%]
+
             -translate-x-1/2
             -translate-y-1/2
-            w-[620px]
-            h-[620px]
+
+            w-[260px]
+            h-[260px]
+
+            sm:w-[420px]
+            sm:h-[420px]
+
+            md:w-[620px]
+            md:h-[620px]
+
             rounded-full
             bg-purple-300/20
             blur-3xl
@@ -134,17 +160,28 @@ export default function Hero() {
             absolute
             left-1/2
             top-[42%]
+
             -translate-x-1/2
             -translate-y-1/2
-            w-[650px]
-            md:w-[850px]
-            lg:w-[950px]
+
+            w-[300px]
+
+            sm:w-[500px]
+
+            md:w-[700px]
+
+            lg:w-[850px]
+
+            xl:w-[950px]
+
             opacity-60
             blur-[1px]
+
             select-none
             pointer-events-none
           "
         />
+
       </div>
 
       {/* CONTENT */}
@@ -152,18 +189,30 @@ export default function Hero() {
         className="
           relative
           z-10
+
           max-w-6xl
+
           text-center
-          mt-8
+
+          mt-4
+          sm:mt-8
           md:mt-14
         "
       >
 
         {/* TITLE */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+          }}
           className={`
             ${serif.className}
             font-medium
@@ -172,119 +221,185 @@ export default function Hero() {
           `}
         >
 
-          <span className="block text-stone-900 text-[52px] sm:text-[76px] md:text-[108px]">
+          <span className="block text-stone-900 text-[34px] sm:text-[52px] md:text-[76px] lg:text-[108px]">
+
             {t.hero.title1}
+
           </span>
 
-          <span className="block text-stone-900 text-[52px] sm:text-[76px] md:text-[108px]">
+          <span className="block text-stone-900 text-[34px] sm:text-[52px] md:text-[76px] lg:text-[108px]">
+
             {t.hero.title2}
+
           </span>
 
-          <span className="block mt-2 text-orange-500 text-[62px] sm:text-[92px] md:text-[128px]">
+          <span className="block mt-2 text-orange-500 text-[42px] sm:text-[62px] md:text-[92px] lg:text-[128px]">
+
             {t.hero.title3}
+
           </span>
 
         </motion.h1>
 
         {/* SUBTEXT */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 1 }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 0.2,
+            duration: 1,
+          }}
           className="
-            mt-8
-            max-w-2xl
+            mt-6
+            sm:mt-8
+
+            max-w-xs
+            sm:max-w-lg
+            md:max-w-2xl
+
             mx-auto
-            text-[15px]
-            sm:text-[17px]
+
+            text-sm
+            sm:text-[15px]
+            md:text-[17px]
+
             leading-relaxed
             text-stone-600
           "
         >
 
-          <div className="space-y-2">
+          <p>
 
-            <p>
-              Managed in the Netherlands Built by top-tier Indonesian developers.
-            </p>
+            Managed in the Netherlands Built by top-tier Indonesian developers.
 
-          </div>
+          </p>
 
         </motion.div>
 
         {/* BUTTONS */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 1 }}
+          initial={{
+            opacity: 0,
+            y: 15,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 0.3,
+            duration: 1,
+          }}
           className="
             mt-6
+
             flex
-            flex-wrap
+            flex-col
+
+            sm:flex-row
+
             items-center
             justify-center
-            gap-4
+
+            gap-3
+            sm:gap-4
           "
         >
 
-          {/* PRIMARY BUTTON */}
           <button
             className="
               group
+
+              w-full
+              sm:w-auto
+
               flex
               items-center
+              justify-center
+
               gap-2
+
               rounded-full
+
               bg-blue-600
-              px-8
-              py-4
+
+              px-6
+              sm:px-8
+
+              py-3
+              sm:py-4
+
               text-white
               font-medium
+
               shadow-xl
               shadow-blue-500/20
+
               transition-all
               duration-300
+
               hover:scale-[1.02]
               hover:bg-blue-700
             "
           >
+
             {t.hero.primaryBtn}
 
             <ArrowRight
               size={17}
-              className="
-                transition-transform
-                group-hover:translate-x-1
-              "
+              className="group-hover:translate-x-1 transition-transform"
             />
+
           </button>
 
-          {/* SECONDARY BUTTON */}
           <button
             className="
+              w-full
+              sm:w-auto
+
               rounded-full
+
               border
               border-stone-300/80
+
               bg-white/60
+
               backdrop-blur-xl
-              px-8
-              py-4
+
+              px-6
+              sm:px-8
+
+              py-3
+              sm:py-4
+
               text-stone-700
+
               shadow-md
+
               transition-all
               duration-300
+
               hover:scale-[1.02]
               hover:bg-white/90
               hover:shadow-lg
               hover:border-stone-400
             "
           >
+
             {t.hero.secondaryBtn}
+
           </button>
 
         </motion.div>
 
       </div>
+
     </section>
   )
 }

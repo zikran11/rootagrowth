@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 
 import { translations } from '@/lib/translation'
 
@@ -21,6 +22,8 @@ export default function Services() {
   const t =
     translations[locale as keyof typeof translations] ||
     translations.en
+
+  const [openCard, setOpenCard] = useState<number | null>(null)
 
   return (
     <section className="relative overflow-hidden bg-white py-24">
@@ -76,6 +79,7 @@ export default function Services() {
             <br />
             {t.servicesSection.title2}
           </h2>
+
         </motion.div>
 
         {/* CARDS */}
@@ -84,14 +88,27 @@ export default function Services() {
           {t.servicesSection.services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{
+                opacity: 0,
+                y: 40
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0
+              }}
               transition={{
                 duration: 0.6,
                 delay: index * 0.1,
               }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
+              onClick={() =>
+                setOpenCard(
+                  openCard === index
+                    ? null
+                    : index
+                )
+              }
               className="
                 group
                 overflow-hidden
@@ -106,6 +123,7 @@ export default function Services() {
                 duration-500
                 hover:border-blue-300
                 hover:shadow-[0_0_60px_rgba(59,130,246,0.18)]
+                cursor-pointer
               "
             >
 
@@ -126,6 +144,7 @@ export default function Services() {
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent" />
+
               </div>
 
               <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-200 to-transparent" />
@@ -159,22 +178,41 @@ export default function Services() {
                       group-hover:bg-blue-600
                     "
                   >
-                    <ArrowUpRight size={20} className="text-white" />
+                    <ArrowUpRight
+                      size={20}
+                      className="text-white"
+                    />
                   </div>
+
                 </div>
 
-                {/* HOVER CONTENT (FIXED HEIGHT) */}
+                {/* MOBILE TAP + DESKTOP HOVER */}
                 <div
-                  className="
-                    max-h-0
+                  className={`
                     overflow-hidden
-                    opacity-0
                     transition-all
                     duration-500
-                    group-hover:mt-6
-                    group-hover:max-h-[800px]
-                    group-hover:opacity-100
-                  "
+                    
+                    ${
+                      openCard === index
+                        ? `
+                          mt-6
+                          max-h-[800px]
+                          opacity-100
+                          lg:mt-0
+                          lg:max-h-0
+                          lg:opacity-0
+                        `
+                        : `
+                          max-h-0
+                          opacity-0
+                        `
+                    }
+
+                    lg:group-hover:mt-6
+                    lg:group-hover:max-h-[800px]
+                    lg:group-hover:opacity-100
+                  `}
                 >
 
                   {/* DESCRIPTION */}
@@ -188,12 +226,19 @@ export default function Services() {
                     {service.features.map((feature, i) => (
                       <div
                         key={i}
-                        className="flex items-center gap-3 text-sm text-gray-700"
+                        className="
+                          flex
+                          items-center
+                          gap-3
+                          text-sm
+                          text-gray-700
+                        "
                       >
                         <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
                         {feature}
                       </div>
                     ))}
+
                   </div>
 
                   {/* BOTTOM TEXT */}
@@ -204,8 +249,10 @@ export default function Services() {
                 </div>
 
               </div>
+
             </motion.div>
           ))}
+
         </div>
 
         {/* BUTTON */}
@@ -242,13 +289,19 @@ export default function Services() {
 
               <ArrowUpRight
                 size={18}
-                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-1
+                  group-hover:-translate-y-1
+                "
               />
             </button>
           </Link>
         </motion.div>
 
       </div>
+
     </section>
   )
 }
