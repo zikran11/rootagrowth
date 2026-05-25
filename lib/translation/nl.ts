@@ -16,7 +16,7 @@ const nl = {
         subtext:
             'Beheerd in Nederland en gebouwd door top-tier Indonesische ontwikkelaars.',
 
-        primaryBtn: 'Plan een Gratis Consult',
+        primaryBtn: 'Neem contact op',
         secondaryBtn: 'Bekijk Onze Diensten',
     },
 
@@ -254,9 +254,7 @@ const nl = {
         email: 'info@roota.nl',
         location: 'Rotterdam, Nederland',
 
-        privacy: 'Privacy',
-        terms: 'Voorwaarden',
-        careers: 'Vacatures',
+
 
         copy: '© {year} Roota Growth. Alle rechten voorbehouden.',
     },
@@ -291,7 +289,7 @@ const nl = {
             },
             {
                 title: 'Indonesisch Talent',
-                description: 'Ons ontwikkelingsteam in Indonesië bestaat aus hoogopgeleide engineers met ervaring in moderne webtechnologieën. Ze brengen sterke technische uitvoering, aanpassingsvermogen in snel veranderende omgevingen en een toewijding aan het leveren van schaalbare en hoogwaardige digitale oplossingen.',
+                description: 'Ons ontwikkelingsteam in Indonesië bestaat uit hoogopgeleide engineers met ervaring in moderne webtechnologieën. Ze brengen sterke technische uitvoering, aanpassingsvermogen in snel veranderende omgevingen en een toewijding aan het leveren van schaalbare en hoogwaardige digitale oplossingen.',
                 animation: '/programming.gif',
                 type: 'gif',
                 reverse: true,
@@ -571,6 +569,9 @@ const nl = {
 
         uploadCoverLetter: 'Uploaden',
 
+        otherSupportingDocuments:
+  'Overige ondersteunende documenten',
+
         submit: 'Sollicitatie Versturen',
 
         sending: 'Verzenden...',
@@ -603,15 +604,19 @@ const nl = {
 
         serviceLabel: 'Interessante Dienst',
 
-        services: {
-            development: 'Ontwikkeling',
+       services: {
+  aiAutomation: 'AI-automatiseringsontwikkeling',
 
-            uiux: 'UI/UX Design',
+  application: 'Applicatieontwikkeling',
 
-            graphic: 'Grafisch Ontwerp',
+  fullstack: 'Full-Stack ontwikkeling',
 
-            mobile: 'Mobiele App',
-        },
+  backend: 'Backend ontwikkeling',
+
+  frontend: 'Frontend ontwikkeling',
+
+  uiux: 'UI/UX Design',
+},
 
         messageLabel: 'Bericht',
 

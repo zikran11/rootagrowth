@@ -20,6 +20,7 @@ type FormState = {
   cvFile: FileState
   portfolioFile: FileState
   coverLetterFile: FileState
+  otherFile: FileState
 }
 
 export default function ApplicationForm() {
@@ -30,18 +31,19 @@ export default function ApplicationForm() {
     translations[locale as keyof typeof translations] ||
     translations.en
 
-  const [formData, setFormData] = useState<FormState>({
-    fullName: '',
-    email: '',
-    phone: '',
-    position: '',
-    experienceLevel: '',
-    personalityRating: '',
-    portfolioUrl: '',
-    cvFile: null,
-    portfolioFile: null,
-    coverLetterFile: null,
-  })
+const [formData, setFormData] = useState<FormState>({
+  fullName: '',
+  email: '',
+  phone: '',
+  position: '',
+  experienceLevel: '',
+  personalityRating: '',
+  portfolioUrl: '',
+  cvFile: null,
+  portfolioFile: null,
+  coverLetterFile: null,
+  otherFile: null,
+})
 
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -103,7 +105,12 @@ export default function ApplicationForm() {
           formData.coverLetterFile
         )
       }
-
+if (formData.otherFile) {
+  data.append(
+    'otherFile',
+    formData.otherFile
+  )
+}
       const response = await fetch(
         '/api/application',
         {
@@ -121,17 +128,18 @@ export default function ApplicationForm() {
       setSubmitted(true)
 
       setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        position: '',
-        experienceLevel: '',
-        personalityRating: '',
-        portfolioUrl: '',
-        cvFile: null,
-        portfolioFile: null,
-        coverLetterFile: null,
-      })
+  fullName: '',
+  email: '',
+  phone: '',
+  position: '',
+  experienceLevel: '',
+  personalityRating: '',
+  portfolioUrl: '',
+  cvFile: null,
+  portfolioFile: null,
+  coverLetterFile: null,
+  otherFile: null,
+})
     } catch (error) {
       console.error(error)
     } finally {
@@ -546,94 +554,154 @@ export default function ApplicationForm() {
               </div>
 
               {/* FILES */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
 
                 {[
-                  {
-                    label:
-                      t.applicationForm
-                        .cvLabel,
-                    file:
-                      formData.cvFile,
-                    text:
-                      t.applicationForm
-                        .uploadCv,
-                    accept:
-                      '.pdf,.doc,.docx',
-                    key: 'cvFile',
-                  },
-                  {
-                    label:
-                      t.applicationForm
-                        .portfolioLabel,
-                    file:
-                      formData
-                        .portfolioFile,
-                    text:
-                      t.applicationForm
-                        .uploadPortfolio,
-                    accept:
-                      '.zip,.pdf,.jpg,.png',
-                    key:
-                      'portfolioFile',
-                  },
-                  {
-                    label:
-                      t.applicationForm
-                        .coverLetterLabel,
-                    file:
-                      formData
-                        .coverLetterFile,
-                    text:
-                      t.applicationForm
-                        .uploadCoverLetter,
-                    accept:
-                      '.pdf,.doc,.docx',
-                    key:
-                      'coverLetterFile',
-                  },
+  {
+    label:
+      t.applicationForm
+        .cvLabel,
+    file:
+      formData.cvFile,
+    text:
+      t.applicationForm
+        .uploadCv,
+    accept:
+      '.pdf,.doc,.docx',
+    key: 'cvFile',
+  },
+
+  {
+    label:
+      t.applicationForm
+        .portfolioLabel,
+    file:
+      formData
+        .portfolioFile,
+    text:
+      t.applicationForm
+        .uploadPortfolio,
+    accept:
+      '.zip,.pdf,.jpg,.png',
+    key:
+      'portfolioFile',
+  },
+
+  {
+    label:
+      t.applicationForm
+        .coverLetterLabel,
+    file:
+      formData
+        .coverLetterFile,
+    text:
+      t.applicationForm
+        .uploadCoverLetter,
+    accept:
+      '.pdf,.doc,.docx',
+    key:
+      'coverLetterFile',
+  },
+
+  {
+    label:
+  t.applicationForm
+    .otherSupportingDocuments,
+
+    file:
+      formData
+        .otherFile,
+
+    text:
+      'Upload Others',
+
+    accept:
+      '.pdf,.doc,.docx,.zip,.jpg,.png',
+
+    key:
+      'otherFile',
+  },
+
                 ].map(item => (
-                  <div
-                    key={item.key}
-                    className="space-y-2"
-                  >
+  <div
+    key={item.key}
+    className="
+      space-y-2
+      flex
+      flex-col
+    "
+  >
 
-                    <label className="text-sm font-medium text-stone-700">
-                      {item.label}
-                    </label>
+    <label
+  className="
+    text-sm
+    font-medium
+    text-stone-700
 
-                    <label className="block px-4 py-5 bg-white border-2 border-dashed border-stone-200 rounded-xl cursor-pointer text-center">
+    min-h-[72px]
 
-                      <Upload
-                        size={18}
-                        className="mx-auto mb-2 text-stone-400"
-                      />
+    flex
+    items-start
 
-                      <span className="text-xs text-stone-500 break-all">
-                        {item.file
-                          ? item.file
-                              .name
-                          : item.text}
-                      </span>
+    leading-relaxed
+  "
+>
+      {item.label}
+    </label>
 
-                      <input
-                        type="file"
-                        accept={
-                          item.accept
-                        }
-                        onChange={e =>
-                          handleFileChange(
-                            e,
-                            item.key
-                          )
-                        }
-                        className="hidden"
-                      />
+    <label
+      className="
+        flex
+        flex-col
+        items-center
+        justify-center
 
-                    </label>
+        min-h-[140px]
 
-                  </div>
-                ))}
+        px-4
+        py-5
+
+        bg-white
+
+        border-2
+        border-dashed
+        border-stone-200
+
+        rounded-xl
+
+        cursor-pointer
+
+        text-center
+      "
+    >
+
+      <Upload
+        size={18}
+        className="mb-2 text-stone-400"
+      />
+
+      <span className="text-xs text-stone-500 break-all">
+        {item.file
+          ? item.file.name
+          : item.text}
+      </span>
+
+      <input
+        type="file"
+        accept={item.accept}
+        onChange={e =>
+          handleFileChange(
+            e,
+            item.key
+          )
+        }
+        className="hidden"
+      />
+
+    </label>
+
+  </div>
+))}
 
               </div>
 

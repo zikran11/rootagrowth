@@ -78,17 +78,20 @@ export default function Footer() {
 
             {/* LOGO */}
             <img
-              src="/logooo.png"
+              src="/logo3.png"
               alt="Roota Growth"
               className="
-                h-14
-                sm:h-16
-                md:h-20
-                lg:h-28
+                h-15
+sm:h-17
+md:h-22
+lg:h-30
 
                 w-auto
                 object-contain
 
+                -ml-4
+    md:-ml-6
+    
                 mb-6
                 md:mb-8
               "
@@ -303,27 +306,7 @@ export default function Footer() {
 
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-white/40">
-
-            <span className="hover:text-white transition cursor-pointer">
-
-              Privacy
-
-            </span>
-
-            <span className="hover:text-white transition cursor-pointer">
-
-              Terms
-
-            </span>
-
-            <span className="hover:text-white transition cursor-pointer">
-
-              Careers
-
-            </span>
-
-          </div>
+          
 
         </div>
 

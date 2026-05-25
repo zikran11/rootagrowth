@@ -104,74 +104,76 @@ export default function TechStack() {
         {/* STACK */}
         <div className="mt-16 flex flex-col items-center gap-8 md:mt-28 md:gap-16">
 
-          {/* ROW 1 */}
-          <div className="flex flex-wrap justify-center px-2 sm:px-6">
+           <div className="flex flex-wrap justify-center px-2 sm:px-6">
 
-            {firstRow.map((tech, index) => (
-              <motion.div
-                key={index}
-                initial={{
-                  opacity: 0,
-                  y: 40,
-                  rotate: 10,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                  rotate: 10,
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.05,
-                }}
-                viewport={{ once: true }}
-                whileHover={{
-                  y: -14,
-                  scale: 1.12,
-                  rotate: 6,
-                }}
-                className="
-                  relative
-                  -mr-2
-                  mb-4
+    {firstRow.map((tech, index) => (
+      <motion.div
+        key={index}
+        initial={{
+          opacity: 0,
+          y: 40,
+          rotate: 10,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          rotate: 10,
+        }}
+        transition={{
+          duration: 0.1,
+          ease: 'easeOut',
+          delay: index * 0.03,
+        }}
+        viewport={{ once: true }}
+        whileHover={{
+          y: -8,
+          scale: 1.08,
+          rotate: 8,
+        }}
+        className="
+          relative
+          -mr-2
+          mb-4
 
-                  h-[72px]
-                  w-[72px]
+          h-[72px]
+          w-[72px]
 
-                  rotate-[10deg]
+          rotate-[10deg]
 
-                  overflow-hidden
-                  rounded-[20px]
-                  border
-                  border-gray-200
-                  bg-white
+          overflow-hidden
+          rounded-[20px]
+          border
+          border-gray-200
+          bg-white
 
-                  shadow-[0_10px_40px_rgba(0,0,0,0.08)]
+          shadow-[0_10px_40px_rgba(0,0,0,0.08)]
 
-                  sm:-mr-6
-                  sm:h-[105px]
-                  sm:w-[105px]
+          will-change-transform
+          transform-gpu
 
-                  md:-mr-6
-                  md:h-[160px]
-                  md:w-[160px]
-                  md:rotate-[18deg]
-                  md:rounded-[38px]
-                "
-              >
-                <div className="relative h-full w-full">
-                  <Image
-                    src={tech.image}
-                    alt="tech"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </motion.div>
-            ))}
+          sm:-mr-6
+          sm:h-[105px]
+          sm:w-[105px]
 
-          </div>
+          md:-mr-6
+          md:h-[160px]
+          md:w-[160px]
+          md:rotate-[18deg]
+          md:rounded-[38px]
+        "
+      >
+        <div className="relative h-full w-full">
+          <Image
+            src={tech.image}
+            alt="tech"
+            fill
+            className="object-cover"
+          />
+        </div>
+      </motion.div>
+    ))}
 
+  </div>
           {/* ROW 2 */}
           <div className="flex flex-wrap justify-center">
 
@@ -189,15 +191,17 @@ export default function TechStack() {
                   rotate: 10,
                 }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.05,
-                }}
+  duration: 0.1,
+  ease: 'easeOut',
+  delay: index * 0.03,
+}}
                 viewport={{ once: true }}
                 whileHover={{
-                  y: -14,
-                  scale: 1.12,
-                  rotate: 6,
-                }}
+  y: -8,
+  scale: 1.08,
+  rotate: 8,
+}}
+
                 className="
                   relative
                   -mr-2

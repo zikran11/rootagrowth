@@ -235,26 +235,26 @@ export default function Navbar() {
         }}
 
         className="
-          w-full
+  w-full
 
-          max-w-6xl
+  max-w-6xl
 
-          rounded-[28px]
-          md:rounded-full
+  rounded-[28px]
+  md:rounded-full
 
-          border border-white/[0.06]
+  border border-white/20
 
-          bg-[#081120]/50
+  bg-[#C9CDD4]
 
-          backdrop-blur-2xl
+  backdrop-blur-2xl
 
-          shadow-[0_8px_40px_rgba(37,99,235,0.15)]
-        "
+  shadow-[0_8px_40px_rgba(37,99,235,0.12)]
+"
       >
 
         <div className="px-5 md:px-6 lg:px-8">
 
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between h-14 md:h-17">
 
             {/* LOGO */}
             <Link
@@ -345,32 +345,27 @@ export default function Navbar() {
               <LanguageSwitcher />
 
               <Link
-                href={`/${locale}/contact`}
-                className="
-                  px-5 py-2.5
+  href={`/${locale}/contact`}
+  className="
+    px-5 py-2.5
 
-                  rounded-full
+    rounded-full
 
-                  bg-blue-600
+    bg-[#2F5AA6]
 
-                  text-white
+    text-white
 
-                  text-sm
+    text-sm
 
-                  font-medium
+    font-medium
 
-                  hover:bg-blue-500
+    hover:bg-[#274B8A]
 
-                  transition
-                "
-              >
-
-                {
-                  t.navbar
-                    .getStarted
-                }
-
-              </Link>
+    transition
+  "
+>
+  {t.navbar.getStarted}
+</Link>
 
             </div>
 

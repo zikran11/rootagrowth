@@ -16,7 +16,7 @@ const fr = {
         subtext:
             'Géré aux Pays-Bas et développé par des développeurs indonésiens de premier plan.',
 
-        primaryBtn: 'Planifier une consultation gratuite',
+        primaryBtn: 'Contactez-nous',
         secondaryBtn: 'Voir nos services',
     },
 
@@ -254,9 +254,7 @@ const fr = {
         email: 'info@roota.nl',
         location: 'Rotterdam, Pays-Bas',
 
-        privacy: 'Confidentialité',
-        terms: 'Conditions',
-        careers: 'Carrières',
+
 
         copy: '© {year} Roota Growth. Tous droits réservés.',
     },
@@ -571,6 +569,9 @@ const fr = {
 
         uploadCoverLetter: 'Téléverser',
 
+        otherSupportingDocuments:
+  'Autres documents justificatifs',
+
         submit: 'Soumettre la candidature',
 
         sending: 'Envoi en cours...',
@@ -604,14 +605,18 @@ const fr = {
         serviceLabel: 'Service intéressé',
 
         services: {
-            development: 'Développement',
+  aiAutomation: 'Développement de l’automatisation IA',
 
-            uiux: 'Design UI/UX',
+  application: 'Développement d’applications',
 
-            graphic: 'Design graphique',
+  fullstack: 'Développement Full-Stack',
 
-            mobile: 'Application mobile',
-        },
+  backend: 'Développement Backend',
+
+  frontend: 'Développement Frontend',
+
+  uiux: 'Design UI/UX',
+},
 
         messageLabel: 'Message',
 

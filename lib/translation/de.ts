@@ -16,7 +16,7 @@ const de = {
         subtext:
             'Gesteuert in den Niederlanden und entwickelt von erstklassigen indonesischen Entwicklern.',
 
-        primaryBtn: 'Kostenlose Beratung vereinbaren',
+        primaryBtn: 'Kontaktieren Sie uns',
         secondaryBtn: 'Unsere Dienstleistungen ansehen',
     },
 
@@ -254,9 +254,7 @@ const de = {
         email: 'info@roota.nl',
         location: 'Rotterdam, Niederlande',
 
-        privacy: 'Datenschutz',
-        terms: 'Bedingungen',
-        careers: 'Karriere',
+
 
         copy: '© {year} Roota Growth. Alle Rechte vorbehalten.',
     },
@@ -571,6 +569,8 @@ const de = {
 
         uploadCoverLetter: 'Hochladen',
 
+        otherSupportingDocuments: 'Weitere unterstützende Dokumente',
+
         submit: 'Bewerbung abschicken',
 
         sending: 'Wird gesendet...',
@@ -604,15 +604,18 @@ const de = {
         serviceLabel: 'Interessiert an Dienstleistung',
 
         services: {
-            development: 'Entwicklung',
+  aiAutomation: 'KI-Automatisierungsentwicklung',
 
-            uiux: 'UI/UX Design',
+  application: 'Anwendungsentwicklung',
 
-            graphic: 'Grafikdesign',
+  fullstack: 'Full-Stack-Entwicklung',
 
-            mobile: 'Mobile App',
-        },
+  backend: 'Backend-Entwicklung',
 
+  frontend: 'Frontend-Entwicklung',
+
+  uiux: 'UI/UX-Design',
+},
         messageLabel: 'Nachricht',
 
         messagePlaceholder:

@@ -52,7 +52,7 @@ export default function CompanyStory() {
           >
             {t.companyStory.title1}{' '}
 
-            <span className="text-stone-400">
+            <span className="text-orange-500">
               {t.companyStory.title2}
             </span>
           </h2>

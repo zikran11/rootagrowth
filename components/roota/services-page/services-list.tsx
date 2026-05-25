@@ -51,7 +51,7 @@ export default function ServicesList() {
           md:h-[300px]
           md:w-[700px]
           -translate-x-1/2
-          bg-blue-500/10
+          bg-[#2F5AA6]/10
           blur-[120px]
           md:blur-[160px]
         "
@@ -180,15 +180,15 @@ export default function ServicesList() {
                     rounded-[24px]
                     md:rounded-[32px]
                     border
-                    border-blue-100
+                    border-[#2F5AA6]/10
                     bg-gradient-to-b
-                    from-blue-50
+                    from-[#2F5AA6]/5
                     to-white
-                    shadow-[0_10px_50px_rgba(59,130,246,0.10)]
+                    shadow-[0_10px_50px_rgba(47,90,166,0.10)]
                     transition-all
                     duration-500
-                    hover:border-blue-300
-                    hover:shadow-[0_0_60px_rgba(59,130,246,0.18)]
+                    hover:border-[#2F5AA6]/30
+                    hover:shadow-[0_0_60px_rgba(47,90,166,0.18)]
                   "
                 >
 
@@ -208,40 +208,50 @@ export default function ServicesList() {
                       "
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#2F5AA6]/25 to-transparent" />
 
                     <div
-                      className="
-                        absolute
-                        right-4
-                        top-4
-                        md:right-6
-                        md:top-6
-                        flex
-                        h-10
-                        w-10
-                        md:h-12
-                        md:w-12
-                        items-center
-                        justify-center
-                        rounded-full
-                        border
-                        border-white/20
-                        bg-white/90
-                        backdrop-blur-md
-                        group-hover:bg-blue-500
-                      "
-                    >
+  className="
+    absolute
+    right-4
+    top-4
+    md:right-6
+    md:top-6
+    flex
+    h-10
+    w-10
+    md:h-12
+    md:w-12
+    items-center
+    justify-center
+    rounded-full
 
-                      <ArrowUpRight
-                        size={18}
-                        className="
-                          text-blue-600
-                          group-hover:text-white
-                        "
-                      />
+    border
+    border-[#2F5AA6]/20
 
-                    </div>
+    bg-[#2F5AA6]
+
+    shadow-lg
+    shadow-[#2F5AA6]/30
+
+    backdrop-blur-md
+
+    transition-all
+    duration-300
+
+    group-hover:scale-110
+    group-hover:bg-[#274B8A]
+  "
+>
+
+  <ArrowUpRight
+    size={18}
+    className="
+      text-white
+    "
+  />
+
+</div>
 
                   </div>
 
@@ -253,32 +263,32 @@ export default function ServicesList() {
                     </h3>
 
                     <div
-                      className={`
-                        overflow-hidden
-                        transition-all
-                        duration-500
+  className={`
+    overflow-hidden
+    transition-all
+    duration-500
 
-                        ${
-                          isOpen
-                            ? 'max-h-[500px] opacity-100 mt-6'
-                            : 'max-h-0 opacity-0'
-                        }
+    ${
+      isOpen
+        ? 'max-h-[800px] opacity-100 mt-6'
+        : 'max-h-0 opacity-0'
+    }
 
-                        lg:max-h-0
-                        lg:opacity-0
-                        lg:mt-0
+    lg:max-h-0
+    lg:opacity-0
+    lg:mt-0
 
-                        lg:group-hover:mt-6
-                        lg:group-hover:max-h-[500px]
-                        lg:group-hover:opacity-100
-                      `}
-                    >
+    lg:group-hover:mt-6
+    lg:group-hover:max-h-[800px]
+    lg:group-hover:opacity-100
+  `}
+>
 
                       <p className="leading-relaxed text-sm md:text-base text-gray-600">
                         {service.description}
                       </p>
 
-                      <div className="mt-6 space-y-3 md:space-y-4 border-t border-blue-100 pt-6">
+                      <div className="mt-6 space-y-3 md:space-y-4 border-t border-[#2F5AA6]/10 pt-6">
 
                         {service.features.map(
                           (
@@ -297,7 +307,7 @@ export default function ServicesList() {
                               "
                             >
 
-                              <div className="h-2 w-2 rounded-full bg-blue-500" />
+                              <div className="h-2 w-2 rounded-full bg-[#2F5AA6]" />
 
                               {feature}
 
@@ -307,8 +317,8 @@ export default function ServicesList() {
 
                       </div>
 
-                      <p className="mt-6 text-sm font-medium text-blue-600">
-                        👉 {service.bottomText}
+                      <p className="mt-6 font-medium text-[#2F5AA6]">
+                        {service.bottomText}
                       </p>
 
                     </div>

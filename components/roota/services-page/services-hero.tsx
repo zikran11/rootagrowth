@@ -5,7 +5,7 @@ import Lottie from 'lottie-react'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-import servicesAnim from '@/public/lottie/team.json'
+import servicesAnim from '@/public/lottie/teamm.json'
 import { translations } from '@/lib/translation'
 
 export default function ServicesHero() {

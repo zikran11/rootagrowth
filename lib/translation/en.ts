@@ -17,7 +17,7 @@ const en = {
         subtext:
             'Managed in the Netherlands and built by top-tier Indonesian developers.',
 
-        primaryBtn: 'Schedule a Free Consultation',
+        primaryBtn: 'Contact Us',
         secondaryBtn: 'View Our Services',
     },
 
@@ -255,9 +255,6 @@ const en = {
         email: 'info@roota.nl',
         location: 'Rotterdam, Netherlands',
 
-        privacy: 'Privacy',
-        terms: 'Terms',
-        careers: 'Careers',
 
         copy: '© {year} Roota Growth. All rights reserved.',
     },
@@ -573,6 +570,9 @@ applicationForm: {
 
   uploadCoverLetter: 'Upload',
 
+  otherSupportingDocuments:
+  'Other Supporting Documents',
+
   submit: 'Submit Application',
 
   sending: 'Sending...',
@@ -605,15 +605,19 @@ contactSection: {
 
   serviceLabel: 'Interested Service',
 
-  services: {
-    development: 'Development',
+ services: {
+  aiAutomation: 'AI Automation Development',
 
-    uiux: 'UI/UX Design',
+  application: 'Application Development',
 
-    graphic: 'Graphic Design',
+  fullstack: 'Full-Stack Development',
 
-    mobile: 'Mobile App',
-  },
+  backend: 'Backend Development',
+
+  frontend: 'Frontend Development',
+
+  uiux: 'UI/UX Design',
+},
 
   messageLabel: 'Message',
 

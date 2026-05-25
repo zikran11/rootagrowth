@@ -3,14 +3,11 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { usePathname } from 'next/navigation'
-import { Cormorant_Garamond } from 'next/font/google'
+import Link from 'next/link'
 
 import { translations } from '@/lib/translation'
 
-const serif = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-})
+
 
 export default function Hero() {
   const pathname = usePathname()
@@ -200,46 +197,68 @@ export default function Hero() {
         "
       >
 
-        {/* TITLE */}
         <motion.h1
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 1,
-          }}
-          className={`
-            ${serif.className}
-            font-medium
-            tracking-[-0.05em]
-            leading-[1]
-          `}
-        >
+  initial={{
+    opacity: 0,
+    y: 30,
+  }}
+  animate={{
+    opacity: 1,
+    y: 0,
+  }}
+  transition={{
+    duration: 1,
+  }}
+  className="
+    font-bold
+    leading-tight
+    tracking-[-0.03em]
+  "
+>
+<span
+  className="
+    block
+    mb-3
 
-          <span className="block text-stone-900 text-[34px] sm:text-[52px] md:text-[76px] lg:text-[108px]">
+    text-stone-900
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+  "
+>
+  {t.hero.title1}
+</span>
 
-            {t.hero.title1}
+<span
+  className="
+    block
 
-          </span>
+    text-stone-900
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+  "
+>
+  {t.hero.title2}
+</span>
 
-          <span className="block text-stone-900 text-[34px] sm:text-[52px] md:text-[76px] lg:text-[108px]">
+  <span className="
+    block
+    mt-2
 
-            {t.hero.title2}
+    text-orange-500
 
-          </span>
+    text-5xl
+    sm:text-6xl
+    md:text-7xl
+    lg:text-8xl
+  ">
+    {t.hero.title3}
+  </span>
 
-          <span className="block mt-2 text-orange-500 text-[42px] sm:text-[62px] md:text-[92px] lg:text-[128px]">
-
-            {t.hero.title3}
-
-          </span>
-
-        </motion.h1>
+</motion.h1>
 
         {/* SUBTEXT */}
         <motion.div
@@ -313,41 +332,41 @@ export default function Hero() {
         >
 
           <button
-            className="
-              group
+  className="
+    group
 
-              w-full
-              sm:w-auto
+    w-full
+    sm:w-auto
 
-              flex
-              items-center
-              justify-center
+    flex
+    items-center
+    justify-center
 
-              gap-2
+    gap-2
 
-              rounded-full
+    rounded-full
 
-              bg-blue-600
+    bg-[#2F5AA6]
 
-              px-6
-              sm:px-8
+    px-6
+    sm:px-8
 
-              py-3
-              sm:py-4
+    py-3
+    sm:py-4
 
-              text-white
-              font-medium
+    text-white
+    font-medium
 
-              shadow-xl
-              shadow-blue-500/20
+    shadow-xl
+    shadow-[#2F5AA6]/20
 
-              transition-all
-              duration-300
+    transition-all
+    duration-300
 
-              hover:scale-[1.02]
-              hover:bg-blue-700
-            "
-          >
+    hover:scale-[1.02]
+    hover:bg-[#274B8A]
+  "
+>
 
             {t.hero.primaryBtn}
 
@@ -358,43 +377,46 @@ export default function Hero() {
 
           </button>
 
-          <button
-            className="
-              w-full
-              sm:w-auto
+          <Link
+  href={`/${locale}/services`}
+  className="
+    w-full
+    sm:w-auto
 
-              rounded-full
+    rounded-full
 
-              border
-              border-stone-300/80
+    border
+    border-stone-300/80
 
-              bg-white/60
+    bg-white/60
 
-              backdrop-blur-xl
+    backdrop-blur-xl
 
-              px-6
-              sm:px-8
+    px-6
+    sm:px-8
 
-              py-3
-              sm:py-4
+    py-3
+    sm:py-4
 
-              text-stone-700
+    text-stone-700
 
-              shadow-md
+    shadow-md
 
-              transition-all
-              duration-300
+    transition-all
+    duration-300
 
-              hover:scale-[1.02]
-              hover:bg-white/90
-              hover:shadow-lg
-              hover:border-stone-400
-            "
-          >
+    hover:scale-[1.02]
+    hover:bg-white/90
+    hover:shadow-lg
+    hover:border-stone-400
 
-            {t.hero.secondaryBtn}
-
-          </button>
+    flex
+    items-center
+    justify-center
+  "
+>
+  {t.hero.secondaryBtn}
+</Link>
 
         </motion.div>
 

@@ -277,21 +277,28 @@ export default function ContactSection() {
               >
 
                 <option>
-                  {t.contactSection.services.development}
-                </option>
+  {t.contactSection.services.aiAutomation}
+</option>
 
-                <option>
-                  {t.contactSection.services.uiux}
-                </option>
+<option>
+  {t.contactSection.services.application}
+</option>
 
-                <option>
-                  {t.contactSection.services.graphic}
-                </option>
+<option>
+  {t.contactSection.services.fullstack}
+</option>
 
-                <option>
-                  {t.contactSection.services.mobile}
-                </option>
+<option>
+  {t.contactSection.services.backend}
+</option>
 
+<option>
+  {t.contactSection.services.frontend}
+</option>
+
+<option>
+  {t.contactSection.services.uiux}
+</option>
               </select>
 
             </div>

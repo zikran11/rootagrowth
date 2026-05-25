@@ -29,7 +29,7 @@ export default function Services() {
     <section className="relative overflow-hidden bg-white py-24">
 
       {/* GLOW */}
-      <div className="absolute left-1/2 top-0 h-[300px] w-[700px] -translate-x-1/2 bg-blue-500/10 blur-[160px]" />
+      <div className="absolute left-1/2 top-0 h-[300px] w-[700px] -translate-x-1/2 bg-[#2F5AA6]/10 blur-[160px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6">
 
@@ -114,15 +114,15 @@ export default function Services() {
                 overflow-hidden
                 rounded-[32px]
                 border
-                border-blue-100
+                border-[#2F5AA6]/10
                 bg-gradient-to-b
                 from-blue-50
                 to-white
-                shadow-[0_10px_50px_rgba(59,130,246,0.10)]
+                shadow-[0_10px_50px_rgba(47,90,166,0.10)]
                 transition-all
                 duration-500
-                hover:border-blue-300
-                hover:shadow-[0_0_60px_rgba(59,130,246,0.18)]
+                hover:border-[#2F5AA6]/30
+                hover:shadow-[0_0_60px_rgba(47,90,166,0.18)]
                 cursor-pointer
               "
             >
@@ -147,7 +147,7 @@ export default function Services() {
 
               </div>
 
-              <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-200 to-transparent" />
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-[#2F5AA6]/20 to-transparent" />
 
               {/* CONTENT */}
               <div className="p-7">
@@ -159,30 +159,35 @@ export default function Services() {
                   </h3>
 
                   <div
-                    className="
-                      flex
-                      h-12
-                      w-12
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      border-blue-200
-                      bg-blue-500
-                      shadow-lg
-                      shadow-blue-500/30
-                      transition-all
-                      duration-300
-                      group-hover:scale-110
-                      group-hover:bg-blue-600
-                    "
-                  >
-                    <ArrowUpRight
-                      size={20}
-                      className="text-white"
-                    />
-                  </div>
+  className="
+    flex
+    h-12
+    w-12
+    shrink-0
+    items-center
+    justify-center
+    rounded-full
+
+    border
+    border-[#2F5AA6]/20
+
+    bg-[#2F5AA6]
+
+    shadow-lg
+    shadow-[#2F5AA6]/30
+
+    transition-all
+    duration-300
+
+    group-hover:scale-110
+    group-hover:bg-[#274B8A]
+  "
+>
+  <ArrowUpRight
+    size={20}
+    className="text-white"
+  />
+</div>
 
                 </div>
 
@@ -224,27 +229,28 @@ export default function Services() {
                   <div className="mt-6 space-y-3 border-t border-blue-100 pt-6">
 
                     {service.features.map((feature, i) => (
-                      <div
-                        key={i}
-                        className="
-                          flex
-                          items-center
-                          gap-3
-                          text-sm
-                          text-gray-700
-                        "
-                      >
-                        <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                        {feature}
-                      </div>
-                    ))}
+  <div
+    key={i}
+    className="
+      flex
+      items-center
+      gap-3
+      text-sm
+      text-gray-700
+    "
+  >
+    <div className="h-2 w-2 rounded-full bg-[#2F5AA6]" />
+
+    {feature}
+  </div>
+))}
 
                   </div>
 
                   {/* BOTTOM TEXT */}
-                  <p className="mt-6 font-medium text-blue-600">
-                    👉 {service.bottomText}
-                  </p>
+                 <p className="mt-6 font-medium text-[#2F5AA6]">
+  {service.bottomText}
+</p>
 
                 </div>
 
@@ -271,14 +277,14 @@ export default function Services() {
                 items-center
                 gap-3
                 rounded-full
-                bg-blue-600
+                bg-[#2F5AA6]
                 px-8
                 py-4
                 text-sm
                 font-semibold
                 text-white
                 shadow-lg
-                shadow-blue-500/30
+                shadow-[#2F5AA6]/30
                 transition-all
                 duration-300
                 hover:scale-105

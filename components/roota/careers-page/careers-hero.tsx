@@ -5,7 +5,7 @@ import Lottie from 'lottie-react'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-import servicesAnim from '@/public/lottie/recruitment.json'
+import servicesAnim from '@/public/lottie/work.json'
 import { translations } from '@/lib/translation'
 
 export default function CareersHero() {
@@ -81,35 +81,36 @@ export default function CareersHero() {
             duration: 1,
           }}
           className="
-            relative
+  relative
 
-            flex
-            items-center
-            justify-center
+  flex
+  items-center
+  justify-center
 
-            -translate-y-4
-            md:-translate-y-10
-          "
+  -translate-y-16
+  md:-translate-y-24
+"
         >
 
           <Lottie
             animationData={servicesAnim}
             loop
+            initialSegment={[40, 120]}
             className="
-              w-[320px]
-              h-[320px]
+  w-[360px]
+  h-[360px]
 
-              sm:w-[420px]
-              sm:h-[420px]
+  sm:w-[500px]
+  sm:h-[500px]
 
-              md:w-[650px]
-              md:h-[650px]
+  md:w-[760px]
+  md:h-[760px]
 
-              lg:w-[720px]
-              lg:h-[720px]
+  lg:w-[860px]
+  lg:h-[860px]
 
-              opacity-75
-            "
+  opacity-75
+"
           />
 
           <div className="absolute inset-0 bg-black/15" />
@@ -139,9 +140,8 @@ export default function CareersHero() {
 
             z-20
 
-            -mt-10
-            md:-mt-24
-
+            -mt-64
+md:-mt-96
             text-center
 
             max-w-3xl
