@@ -144,53 +144,50 @@ export default function ServicesList() {
               return (
 
                 <motion.div
-                  key={index}
-                  onClick={() =>
-                    toggleCard(index)
-                  }
-                  variants={{
-                    hidden: {
-                      opacity: 0,
-                      y: 80,
-                      scale: 0.92,
-                      filter:
-                        'blur(10px)',
-                    },
-
-                    show: {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      filter:
-                        'blur(0px)',
-
-                      transition: {
-                        duration: 0.9,
-                      },
-                    },
-                  }}
-                  whileHover={{
-                    y: -12,
-                    scale: 1.02,
-                  }}
-                  className="
-                    group
-                    cursor-pointer
-                    overflow-hidden
-                    rounded-[24px]
-                    md:rounded-[32px]
-                    border
-                    border-[#2F5AA6]/10
-                    bg-gradient-to-b
-                    from-[#2F5AA6]/5
-                    to-white
-                    shadow-[0_10px_50px_rgba(47,90,166,0.10)]
-                    transition-all
-                    duration-500
-                    hover:border-[#2F5AA6]/30
-                    hover:shadow-[0_0_60px_rgba(47,90,166,0.18)]
-                  "
-                >
+  key={index}
+  onClick={() => toggleCard(index)}
+  variants={{
+    hidden: {
+      opacity: 0,
+      y: 80,
+      scale: 0.92,
+      filter: 'blur(10px)',
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.9,
+      },
+    },
+  }}
+  whileHover={{
+    scale: 1.02,
+  }}
+  transition={{
+    duration: 0.3,
+    ease: 'easeOut',
+  }}
+  className="
+    group
+    cursor-pointer
+    overflow-hidden
+    rounded-[24px]
+    md:rounded-[32px]
+    border
+    border-[#2F5AA6]/10
+    bg-gradient-to-b
+    from-[#2F5AA6]/5
+    to-white
+    shadow-[0_10px_50px_rgba(47,90,166,0.10)]
+    transition-all
+    duration-500
+    hover:border-[#2F5AA6]/30
+    hover:shadow-[0_0_60px_rgba(47,90,166,0.18)]
+  "
+>
 
                   {/* IMAGE */}
                   <div className="relative h-[220px] sm:h-[240px] md:h-[280px] overflow-hidden">

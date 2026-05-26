@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     'Premium IT staffing connecting leading European companies with top Indonesian developer talent',
 
   icons: {
-    icon: '/logoo.png',
-    apple: '/logoo.png'
+    icon: '/logoooo.png',
+    apple: '/logoooo.png'
   }
 }
 

@@ -87,45 +87,42 @@ export default function Services() {
 
           {t.servicesSection.services.map((service, index) => (
             <motion.div
-              key={index}
-              initial={{
-                opacity: 0,
-                y: 40
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0
-              }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-              }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              onClick={() =>
-                setOpenCard(
-                  openCard === index
-                    ? null
-                    : index
-                )
-              }
-              className="
-                group
-                overflow-hidden
-                rounded-[32px]
-                border
-                border-[#2F5AA6]/10
-                bg-gradient-to-b
-                from-blue-50
-                to-white
-                shadow-[0_10px_50px_rgba(47,90,166,0.10)]
-                transition-all
-                duration-500
-                hover:border-[#2F5AA6]/30
-                hover:shadow-[0_0_60px_rgba(47,90,166,0.18)]
-                cursor-pointer
-              "
-            >
+  key={index}
+  initial={{
+    opacity: 0,
+    scale: 0.98,
+  }}
+  whileInView={{
+    opacity: 1,
+    scale: 1,
+  }}
+  transition={{
+    duration: 0.35,
+    delay: index * 0.1,
+    ease: 'easeOut',
+  }}
+  viewport={{ once: true }}
+  whileHover={{
+    scale: 1.02,
+  }}
+  className="
+    transform-gpu
+    group
+    overflow-hidden
+    rounded-[32px]
+    border
+    border-[#2F5AA6]/10
+    bg-gradient-to-b
+    from-blue-50
+    to-white
+    shadow-[0_10px_50px_rgba(47,90,166,0.10)]
+    transition-all
+    duration-300
+    hover:border-[#2F5AA6]/30
+    hover:shadow-[0_0_60px_rgba(47,90,166,0.18)]
+    cursor-pointer
+  "
+>
 
               {/* IMAGE */}
               <div className="relative h-[300px] overflow-hidden">

@@ -253,49 +253,28 @@ export default function CareersOpenings() {
                       </p>
 
                     </div>
+{/* ICON */}
+<div
+  className={`
+    flex
+    h-11 w-11 md:h-12 md:w-12
+    shrink-0
+    items-center justify-center
+    rounded-full
 
-                    {/* ICON */}
-                    <div
-                      className={`
-                        flex
+    bg-[#2F5AA6]
 
-                        h-11
-                        w-11
+    transition-all duration-300
 
-                        md:h-12
-                        md:w-12
-
-                        shrink-0
-
-                        items-center
-                        justify-center
-
-                        rounded-full
-
-                        transition-all
-                        duration-300
-
-                        ${
-                          active
-                            ? `
-                            bg-blue-100
-                            scale-110
-                          `
-                            : `
-                            bg-blue-50
-
-                            group-hover:scale-110
-                          `
-                        }
-                      `}
-                    >
-
-                      <ArrowRight
-                        size={20}
-                        className="text-blue-600"
-                      />
-
-                    </div>
+    group-hover:scale-110
+    ${active ? 'scale-110' : ''}
+  `}
+>
+  <ArrowRight
+    size={20}
+    className="text-white"
+  />
+</div>
 
                   </div>
 

@@ -105,9 +105,9 @@ export default function ContactSection() {
 
           <div className="flex justify-center mb-6 md:mb-8">
 
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-blue-100 flex items-center justify-center shadow-lg shadow-blue-100">
+            <div className="w-16 h-16 rounded-2xl bg-[#2F5AA6] flex items-center justify-center">
+  <MessageSquareMore className="w-8 h-8 text-white" />
 
-              <MessageSquareMore className="w-8 h-8 md:w-10 md:h-10 text-blue-600" />
 
             </div>
 
@@ -144,7 +144,7 @@ export default function ContactSection() {
             className="bg-blue-50 border border-blue-200 rounded-3xl p-5 md:p-6 mb-8 md:mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-4"
           >
 
-            <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-full bg-[#2F5AA6] flex items-center justify-center shrink-0">
 
               <Check className="text-white" />
 
@@ -340,8 +340,7 @@ export default function ContactSection() {
               }}
               type="submit"
               disabled={isLoading}
-              className="w-full md:w-auto justify-center bg-blue-600 text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg shadow-blue-200 flex items-center gap-3"
-            >
+className="w-full md:w-auto justify-center bg-[#2F5AA6] text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-[#274B8A] transition-all duration-300 shadow-lg shadow-[#2F5AA6]/20 flex items-center gap-3"            >
 
               {isLoading ? (
                 <>
@@ -381,9 +380,8 @@ export default function ContactSection() {
 
             <div className="flex gap-4 md:gap-5">
 
-              <div className="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center shrink-0">
-
-                <Mail className="w-6 h-6 text-blue-600" />
+<div className="w-14 h-14 rounded-2xl bg-[#2F5AA6] flex items-center justify-center shrink-0">
+  <Mail className="w-6 h-6 text-white" />
 
               </div>
 
@@ -409,9 +407,8 @@ export default function ContactSection() {
 
             <div className="flex gap-4 md:gap-5">
 
-              <div className="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center shrink-0">
-
-                <MapPin className="w-6 h-6 text-blue-600" />
+<div className="w-14 h-14 rounded-2xl bg-[#2F5AA6] flex items-center justify-center shrink-0">
+  <MapPin className="w-6 h-6 text-white" />
 
               </div>
 

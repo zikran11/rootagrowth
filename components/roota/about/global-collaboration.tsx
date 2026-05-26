@@ -1,24 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Lottie from 'lottie-react'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-import teamworkAnim from '@/public/lottie/teamwork.json'
 import { translations } from '@/lib/translation'
 
-type Item =
-  | {
-      type: 'lottie'
-      animation: any
-      reverse: boolean
-    }
-  | {
-      type: 'gif'
-      animation: string
-      reverse: boolean
-    }
+type Item = {
+  type: 'gif'
+  animation: string
+  reverse: boolean
+}
 
 export default function GlobalCollaboration() {
   const [mounted, setMounted] = useState(false)
@@ -36,18 +28,18 @@ export default function GlobalCollaboration() {
 
   const items: Item[] = [
     {
-      type: 'lottie',
-      animation: teamworkAnim,
+      type: 'gif',
+      animation: '/Collab (1).gif',
       reverse: false,
     },
     {
       type: 'gif',
-      animation: '/programming.gif',
+      animation: '/working.gif',
       reverse: true,
     },
     {
       type: 'gif',
-      animation: '/timezone.gif',
+      animation: '/world.gif',
       reverse: false,
     },
   ]
@@ -91,26 +83,14 @@ export default function GlobalCollaboration() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className={`
-                flex
-                flex-col
-                md:flex-row
-                items-center
-
-                gap-10
-                md:gap-16
-                lg:gap-24
-
-                ${
-                  index === 1
-                    ? 'md:flex-row-reverse'
-                    : ''
-                }
+                flex flex-col md:flex-row items-center
+                gap-10 md:gap-16 lg:gap-24
+                ${index === 1 ? 'md:flex-row-reverse' : ''}
               `}
             >
 
               {/* TEXT */}
               <div className="w-full md:w-1/2 text-center md:text-left">
-
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-6">
                   {item.title}
                 </h3>
@@ -118,51 +98,40 @@ export default function GlobalCollaboration() {
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl mx-auto md:mx-0">
                   {item.description}
                 </p>
-
               </div>
 
-              {/* VISUAL */}
+              {/* VISUAL (GIF FIXED) */}
               <div className="w-full md:w-1/2 flex justify-center items-center">
 
-                {items[index].type === 'lottie' ? (
-                  <Lottie
-                    animationData={items[index].animation}
-                    loop
-                    className="
-                      w-[300px]
-                      h-[300px]
+                <motion.img
+                  src={items[index].animation}
+                  alt={item.title}
+                  draggable={false}
+                  animate={{
+                    y: [0, -10, 0],
+                    scale: [1, 1, 1], // ❌ penting: matikan scale biar tidak blur
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                  className="
+                    object-contain
 
-                      sm:w-[380px]
-                      sm:h-[380px]
+                    w-[280px]
+                    h-[280px]
 
-                      md:w-[480px]
-                      md:h-[480px]
+                    sm:w-[320px]
+                    sm:h-[320px]
 
-                      lg:w-[580px]
-                      lg:h-[580px]
-                    "
-                  />
-                ) : (
-                  <img
-                    src={items[index].animation}
-                    alt={item.title}
-                    className="
-                      object-contain
+                    md:w-[380px]
+                    md:h-[380px]
 
-                      w-[300px]
-                      h-[300px]
-
-                      sm:w-[380px]
-                      sm:h-[380px]
-
-                      md:w-[480px]
-                      md:h-[480px]
-
-                      lg:w-[580px]
-                      lg:h-[580px]
-                    "
-                  />
-                )}
+                    lg:w-[450px]
+                    lg:h-[450px] /* ✅ max mendekati 500px asli GIF */
+                  "
+                />
 
               </div>
 

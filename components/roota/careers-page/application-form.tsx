@@ -708,7 +708,7 @@ if (formData.otherFile) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 md:py-4 bg-blue-500 text-white rounded-xl text-sm font-semibold hover:bg-blue-400 transition flex items-center justify-center gap-2"
+  className="w-full py-3 md:py-4 bg-[#2F5AA6] text-white rounded-xl text-sm font-semibold hover:bg-[#274B8A] transition flex items-center justify-center gap-2"
               >
 
                 {loading ? (

@@ -170,72 +170,54 @@ export default function HowItWorks() {
             (step, index) => (
 
               <motion.div
-                key={index}
-
-                onClick={() =>
-                  setActiveCard(
-                    activeCard === index
-                      ? null
-                      : index
-                  )
-                }
-
-                initial={{
-                  opacity: 0,
-                  y: 40,
-                }}
-
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-
-                transition={{
-                  duration: 0.6,
-                  delay:
-                    index * 0.1,
-                }}
-
-                viewport={{
-                  once: true,
-                }}
-
-                whileHover={{
-                  y: -10,
-                }}
-
-                className="
-                  group
-                  relative
-
-                  overflow-hidden
-
-                  rounded-[24px]
-                  md:rounded-[32px]
-
-                  border
-                  border-blue-100
-
-                  bg-gradient-to-b
-                  from-blue-50
-                  to-white
-
-                  p-5
-                  sm:p-6
-                  md:p-8
-
-                  shadow-[0_10px_50px_rgba(59,130,246,0.10)]
-
-                  transition-all
-                  duration-500
-
-                  hover:border-blue-300
-                  hover:shadow-[0_0_60px_rgba(59,130,246,0.16)]
-
-                  cursor-pointer
-                  md:cursor-default
-                "
-              >
+  key={index}
+  onClick={() =>
+    setActiveCard(
+      activeCard === index ? null : index
+    )
+  }
+  initial={{
+    opacity: 0,
+    y: 40,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+  transition={{
+    duration: 0.3,
+    delay: index * 0.1,
+    ease: 'easeOut',
+  }}
+  viewport={{
+    once: true,
+  }}
+  whileHover={{
+    scale: 1.02,
+  }}
+  className="
+    group
+    relative
+    overflow-hidden
+    rounded-[24px]
+    md:rounded-[32px]
+    border
+    border-blue-100
+    bg-gradient-to-b
+    from-blue-50
+    to-white
+    p-5
+    sm:p-6
+    md:p-8
+    shadow-[0_10px_50px_rgba(59,130,246,0.10)]
+    transition-all
+    duration-500
+    hover:border-blue-300
+    hover:shadow-[0_0_60px_rgba(59,130,246,0.16)]
+    cursor-pointer
+    md:cursor-default
+  "
+>
 
                 {/* IMAGE */}
                 <div className="relative mb-6 md:mb-8 overflow-hidden rounded-2xl">
