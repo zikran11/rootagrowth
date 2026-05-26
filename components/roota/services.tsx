@@ -25,6 +25,15 @@ export default function Services() {
 
   const [openCard, setOpenCard] = useState<number | null>(null)
 
+  // MOBILE ONLY
+  const toggleCard = (index: number) => {
+    if (window.innerWidth >= 1024) return
+
+    setOpenCard((prev) =>
+      prev === index ? null : index
+    )
+  }
+
   return (
     <section className="relative overflow-hidden bg-white py-24">
 
@@ -86,43 +95,47 @@ export default function Services() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
 
           {t.servicesSection.services.map((service, index) => (
+
             <motion.div
-  key={index}
-  initial={{
-    opacity: 0,
-    scale: 0.98,
-  }}
-  whileInView={{
-    opacity: 1,
-    scale: 1,
-  }}
-  transition={{
-    duration: 0.35,
-    delay: index * 0.1,
-    ease: 'easeOut',
-  }}
-  viewport={{ once: true }}
-  whileHover={{
-    scale: 1.02,
-  }}
-  className="
-    transform-gpu
-    group
-    overflow-hidden
-    rounded-[32px]
-    border
-    border-[#2F5AA6]/10
-    bg-gradient-to-b
-    from-blue-50
-    to-white
-    shadow-[0_10px_50px_rgba(47,90,166,0.10)]
-    transition-all
-    duration-300
-    hover:border-[#2F5AA6]/30
-    hover:shadow-[0_0_60px_rgba(47,90,166,0.18)]
-    cursor-pointer
-  "
->
+              key={index}
+              onClick={() => toggleCard(index)}
+              initial={{
+                opacity: 0,
+                scale: 0.98,
+              }}
+              whileInView={{
+                opacity: 1,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.35,
+                delay: index * 0.1,
+                ease: 'easeOut',
+              }}
+              viewport={{ once: true }}
+              whileHover={{
+                scale: 1.02,
+              }}
+              className="
+                transform-gpu
+                group
+                overflow-hidden
+                rounded-[32px]
+                border
+                border-[#2F5AA6]/10
+                bg-gradient-to-b
+                from-blue-50
+                to-white
+                shadow-[0_10px_50px_rgba(47,90,166,0.10)]
+                transition-all
+                duration-300
+                hover:border-[#2F5AA6]/30
+                hover:shadow-[0_0_60px_rgba(47,90,166,0.18)]
+
+                cursor-pointer
+                lg:cursor-default
+              "
+            >
 
               {/* IMAGE */}
               <div className="relative h-[300px] overflow-hidden">
@@ -156,35 +169,35 @@ export default function Services() {
                   </h3>
 
                   <div
-  className="
-    flex
-    h-12
-    w-12
-    shrink-0
-    items-center
-    justify-center
-    rounded-full
+                    className="
+                      flex
+                      h-12
+                      w-12
+                      shrink-0
+                      items-center
+                      justify-center
+                      rounded-full
 
-    border
-    border-[#2F5AA6]/20
+                      border
+                      border-[#2F5AA6]/20
 
-    bg-[#2F5AA6]
+                      bg-[#2F5AA6]
 
-    shadow-lg
-    shadow-[#2F5AA6]/30
+                      shadow-lg
+                      shadow-[#2F5AA6]/30
 
-    transition-all
-    duration-300
+                      transition-all
+                      duration-300
 
-    group-hover:scale-110
-    group-hover:bg-[#274B8A]
-  "
->
-  <ArrowUpRight
-    size={20}
-    className="text-white"
-  />
-</div>
+                      group-hover:scale-110
+                      group-hover:bg-[#274B8A]
+                    "
+                  >
+                    <ArrowUpRight
+                      size={20}
+                      className="text-white"
+                    />
+                  </div>
 
                 </div>
 
@@ -194,22 +207,16 @@ export default function Services() {
                     overflow-hidden
                     transition-all
                     duration-500
-                    
+
                     ${
                       openCard === index
-                        ? `
-                          mt-6
-                          max-h-[800px]
-                          opacity-100
-                          lg:mt-0
-                          lg:max-h-0
-                          lg:opacity-0
-                        `
-                        : `
-                          max-h-0
-                          opacity-0
-                        `
+                        ? 'max-h-[800px] opacity-100 mt-6'
+                        : 'max-h-0 opacity-0'
                     }
+
+                    lg:max-h-0
+                    lg:opacity-0
+                    lg:mt-0
 
                     lg:group-hover:mt-6
                     lg:group-hover:max-h-[800px]
@@ -226,34 +233,35 @@ export default function Services() {
                   <div className="mt-6 space-y-3 border-t border-blue-100 pt-6">
 
                     {service.features.map((feature, i) => (
-  <div
-    key={i}
-    className="
-      flex
-      items-center
-      gap-3
-      text-sm
-      text-gray-700
-    "
-  >
-    <div className="h-2 w-2 rounded-full bg-[#2F5AA6]" />
+                      <div
+                        key={i}
+                        className="
+                          flex
+                          items-center
+                          gap-3
+                          text-sm
+                          text-gray-700
+                        "
+                      >
+                        <div className="h-2 w-2 rounded-full bg-[#2F5AA6]" />
 
-    {feature}
-  </div>
-))}
+                        {feature}
+                      </div>
+                    ))}
 
                   </div>
 
                   {/* BOTTOM TEXT */}
-                 <p className="mt-6 font-medium text-[#2F5AA6]">
-  {service.bottomText}
-</p>
+                  <p className="mt-6 font-medium text-[#2F5AA6]">
+                    {service.bottomText}
+                  </p>
 
                 </div>
 
               </div>
 
             </motion.div>
+
           ))}
 
         </div>

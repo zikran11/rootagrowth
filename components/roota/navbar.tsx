@@ -473,23 +473,27 @@ export default function Navbar() {
                     )
                   }
                   className="
-                    block
+  block
 
-                    text-center
+  text-center
 
-                    mt-4
+  mt-4
 
-                    rounded-2xl
+  rounded-2xl
 
-                    bg-blue-600
+  bg-[#2F5AA6]
 
-                    py-4
+  py-4
 
-                    text-white
+  text-white
 
-                    font-medium
-                  "
-                >
+  font-medium
+
+  hover:bg-[#274B8A]
+
+  transition
+"
+>
 
                   {
                     t.navbar

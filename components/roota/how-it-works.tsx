@@ -3,14 +3,14 @@
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-
+import Image from 'next/image'
 import { translations } from '@/lib/translation'
 
 const images = [
-  '/rapat.png',
-  '/planning.png',
-  '/coding.png',
-  '/monitoring.png',
+  '/rapat1.png',
+  '/planning1.png',
+  '/coding1 (2).png',
+  '/monitoring1.png',
 ]
 
 export default function HowItWorks() {
@@ -220,30 +220,28 @@ export default function HowItWorks() {
 >
 
                 {/* IMAGE */}
-                <div className="relative mb-6 md:mb-8 overflow-hidden rounded-2xl">
+                {/* IMAGE */}
+<div className="relative mb-6 md:mb-8 overflow-hidden rounded-2xl bg-blue-50 h-[220px] sm:h-[250px] md:h-[280px]">
 
-                  <img
-                    src={images[index]}
-                    alt={step.title}
-                    className="
-                      h-[180px]
+  <Image
+    src={images[index]}
+    alt={step.title}
+    fill
+    quality={100}
+    priority={index === 0}
+    className={`
+  object-contain
+  transition
+  duration-700
+  ${
+    index === 2
+      ? 'scale-[1.22] group-hover:scale-[1.28]'
+      : 'scale-110 group-hover:scale-[1.16]'
+  }
+`}
+  />
 
-                      sm:h-[200px]
-
-                      md:h-[220px]
-
-                      w-full
-
-                      object-cover
-
-                      transition
-                      duration-700
-
-                      group-hover:scale-105
-                    "
-                  />
-
-                </div>
+</div>
 
                 {/* STEP */}
                 <p
