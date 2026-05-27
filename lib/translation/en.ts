@@ -531,6 +531,7 @@ applicationForm: {
     frontend: 'Frontend Developer',
 
     uiux: 'UI/UX Designer',
+    
   },
 
   experienceLabel: 'Experience Level *',
@@ -617,6 +618,10 @@ contactSection: {
   frontend: 'Frontend Development',
 
   uiux: 'UI/UX Design',
+
+    dedicatedDeveloper: 'Dedicated Developer',
+
+    others: 'Other Services',
 },
 
   messageLabel: 'Message',

@@ -616,6 +616,11 @@ const fr = {
   frontend: 'Développement Frontend',
 
   uiux: 'Design UI/UX',
+
+    dedicatedDeveloper: 'Développeur dédié',
+
+    others: 'Autres',
+  
 },
 
         messageLabel: 'Message',

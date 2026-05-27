@@ -302,191 +302,117 @@ if (formData.otherFile) {
 
               </div>
 
-              {/* PHONE + POSITION */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+             {/* PHONE + POSITION */}
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                <div className="space-y-2">
+  <div className="space-y-2">
 
-                  <label className="text-sm font-medium text-stone-700">
-                    {
-                      t.applicationForm
-                        .phoneLabel
-                    }
-                  </label>
+    <label className="text-sm font-medium text-stone-700">
+      {t.applicationForm.phoneLabel}
+    </label>
 
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={
-                      formData.phone
-                    }
-                    onChange={
-                      handleInputChange
-                    }
-                    placeholder={
-                      t.applicationForm
-                        .phonePlaceholder
-                    }
-                    required
-                    className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm"
-                  />
+    <input
+      type="tel"
+      name="phone"
+      value={formData.phone}
+      onChange={handleInputChange}
+      placeholder={t.applicationForm.phonePlaceholder}
+      required
+      className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm text-black"
+    />
 
-                </div>
+  </div>
 
-                <div className="space-y-2">
+  <div className="space-y-2">
 
-                  <label className="text-sm font-medium text-stone-700">
-                    {
-                      t.applicationForm
-                        .positionLabel
-                    }
-                  </label>
+    <label className="text-sm font-medium text-stone-700">
+      {t.applicationForm.positionLabel}
+    </label>
 
-                  <select
-                    name="position"
-                    value={
-                      formData.position
-                    }
-                    onChange={
-                      handleInputChange
-                    }
-                    required
-                    className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm"
-                  >
+    <select
+      name="position"
+      value={formData.position}
+      onChange={handleInputChange}
+      required
+      className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm text-black"
+    >
 
-                    <option
-                      value=""
-                      disabled
-                    >
-                      {
-                        t.applicationForm
-                          .positionPlaceholder
-                      }
-                    </option>
+      <option
+        value=""
+        disabled
+        className="text-black"
+      >
+        {t.applicationForm.positionPlaceholder}
+      </option>
 
-                    <option value="ai-automation">
-                      {
-                        t
-                          .applicationForm
-                          .positions
-                          .aiAutomation
-                      }
-                    </option>
+      <option value="ai-automation" className="text-black">
+        {t.applicationForm.positions.aiAutomation}
+      </option>
 
-                    <option value="application">
-                      {
-                        t
-                          .applicationForm
-                          .positions
-                          .application
-                      }
-                    </option>
+      <option value="application" className="text-black">
+        {t.applicationForm.positions.application}
+      </option>
 
-                    <option value="fullstack">
-                      {
-                        t
-                          .applicationForm
-                          .positions
-                          .fullstack
-                      }
-                    </option>
+      <option value="fullstack" className="text-black">
+        {t.applicationForm.positions.fullstack}
+      </option>
 
-                    <option value="backend">
-                      {
-                        t
-                          .applicationForm
-                          .positions
-                          .backend
-                      }
-                    </option>
+      <option value="backend" className="text-black">
+        {t.applicationForm.positions.backend}
+      </option>
 
-                    <option value="frontend">
-                      {
-                        t
-                          .applicationForm
-                          .positions
-                          .frontend
-                      }
-                    </option>
+      <option value="frontend" className="text-black">
+        {t.applicationForm.positions.frontend}
+      </option>
 
-                    <option value="uiux">
-                      {
-                        t
-                          .applicationForm
-                          .positions
-                          .uiux
-                      }
-                    </option>
+      <option value="uiux" className="text-black">
+        {t.applicationForm.positions.uiux}
+      </option>
 
-                  </select>
+    </select>
 
-                </div>
+  </div>
 
-              </div>
+</div>
 
-              {/* EXPERIENCE */}
-              <div className="space-y-2">
+{/* EXPERIENCE */}
+<div className="space-y-2">
 
-                <label className="text-sm font-medium text-stone-700">
-                  {
-                    t.applicationForm
-                      .experienceLabel
-                  }
-                </label>
+  <label className="text-sm font-medium text-stone-700">
+    {t.applicationForm.experienceLabel}
+  </label>
 
-                <select
-                  name="experienceLevel"
-                  value={
-                    formData
-                      .experienceLevel
-                  }
-                  onChange={
-                    handleInputChange
-                  }
-                  required
-                  className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm"
-                >
+  <select
+    name="experienceLevel"
+    value={formData.experienceLevel}
+    onChange={handleInputChange}
+    required
+    className="w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm text-black"
+  >
 
-                  <option
-                    value=""
-                    disabled
-                  >
-                    {
-                      t.applicationForm
-                        .experiencePlaceholder
-                    }
-                  </option>
+    <option
+      value=""
+      disabled
+      className="text-black"
+    >
+      {t.applicationForm.experiencePlaceholder}
+    </option>
 
-                  <option value="junior">
-                    {
-                      t
-                        .applicationForm
-                        .experienceLevels
-                        .junior
-                    }
-                  </option>
+    <option value="junior" className="text-black">
+      {t.applicationForm.experienceLevels.junior}
+    </option>
 
-                  <option value="mid">
-                    {
-                      t
-                        .applicationForm
-                        .experienceLevels
-                        .mid
-                    }
-                  </option>
+    <option value="mid" className="text-black">
+      {t.applicationForm.experienceLevels.mid}
+    </option>
 
-                  <option value="senior">
-                    {
-                      t
-                        .applicationForm
-                        .experienceLevels
-                        .senior
-                    }
-                  </option>
+    <option value="senior" className="text-black">
+      {t.applicationForm.experienceLevels.senior}
+    </option>
 
-                </select>
+  </select>
 
-              </div>
+</div>
 
               {/* PERSONALITY */}
               <div className="space-y-2">

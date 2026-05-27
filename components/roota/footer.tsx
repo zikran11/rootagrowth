@@ -202,7 +202,7 @@ lg:h-30
               "
             >
 
-              Roota.nl
+              info@roota.nl
 
               <ArrowUpRight
                 size={18}

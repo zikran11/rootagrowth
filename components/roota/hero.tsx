@@ -302,123 +302,125 @@ export default function Hero() {
         </motion.div>
 
         {/* BUTTONS */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 15,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: 0.3,
-            duration: 1,
-          }}
-          className="
-            mt-6
-
-            flex
-            flex-col
-
-            sm:flex-row
-
-            items-center
-            justify-center
-
-            gap-3
-            sm:gap-4
-          "
-        >
-
-          <button
+        {/* BUTTONS */}
+<motion.div
+  initial={{
+    opacity: 0,
+    y: 15,
+  }}
+  animate={{
+    opacity: 1,
+    y: 0,
+  }}
+  transition={{
+    delay: 0.3,
+    duration: 1,
+  }}
   className="
-    group
-
-    w-full
-    sm:w-auto
+    mt-6
 
     flex
+    flex-col
+
+    sm:flex-row
+
     items-center
     justify-center
 
-    gap-2
-
-    rounded-full
-
-    bg-[#2F5AA6]
-
-    px-6
-    sm:px-8
-
-    py-3
-    sm:py-4
-
-    text-white
-    font-medium
-
-    shadow-xl
-    shadow-[#2F5AA6]/20
-
-    transition-all
-    duration-300
-
-    hover:scale-[1.02]
-    hover:bg-[#274B8A]
+    gap-3
+    sm:gap-4
   "
 >
 
-            {t.hero.primaryBtn}
+  <Link
+    href={`/${locale}/contact`}
+    className="
+      group
 
-            <ArrowRight
-              size={17}
-              className="group-hover:translate-x-1 transition-transform"
-            />
+      w-full
+      sm:w-auto
 
-          </button>
+      flex
+      items-center
+      justify-center
 
-          <Link
-  href={`/${locale}/services`}
-  className="
-    w-full
-    sm:w-auto
+      gap-2
 
-    rounded-full
+      rounded-full
 
-    border
-    border-stone-300/80
+      bg-[#2F5AA6]
 
-    bg-white/60
+      px-6
+      sm:px-8
 
-    backdrop-blur-xl
+      py-3
+      sm:py-4
 
-    px-6
-    sm:px-8
+      text-white
+      font-medium
 
-    py-3
-    sm:py-4
+      shadow-xl
+      shadow-[#2F5AA6]/20
 
-    text-stone-700
+      transition-all
+      duration-300
 
-    shadow-md
+      hover:scale-[1.02]
+      hover:bg-[#274B8A]
+    "
+  >
 
-    transition-all
-    duration-300
+    {t.hero.primaryBtn}
 
-    hover:scale-[1.02]
-    hover:bg-white/90
-    hover:shadow-lg
-    hover:border-stone-400
+    <ArrowRight
+      size={17}
+      className="group-hover:translate-x-1 transition-transform"
+    />
 
-    flex
-    items-center
-    justify-center
-  "
->
-  {t.hero.secondaryBtn}
-</Link>
+  </Link>
 
-        </motion.div>
+  <Link
+    href={`/${locale}/services`}
+    className="
+      w-full
+      sm:w-auto
+
+      rounded-full
+
+      border
+      border-stone-300/80
+
+      bg-white/60
+
+      backdrop-blur-xl
+
+      px-6
+      sm:px-8
+
+      py-3
+      sm:py-4
+
+      text-stone-700
+
+      shadow-md
+
+      transition-all
+      duration-300
+
+      hover:scale-[1.02]
+      hover:bg-white/90
+      hover:shadow-lg
+      hover:border-stone-400
+
+      flex
+      items-center
+      justify-center
+    "
+  >
+    {t.hero.secondaryBtn}
+  </Link>
+
+</motion.div>
 
       </div>
 

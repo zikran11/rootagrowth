@@ -299,6 +299,14 @@ export default function ContactSection() {
 <option>
   {t.contactSection.services.uiux}
 </option>
+
+<option>
+  {t.contactSection.services.dedicatedDeveloper}
+</option>
+
+<option>
+  {t.contactSection.services.others}
+</option>
               </select>
 
             </div>

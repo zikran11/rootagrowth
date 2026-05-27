@@ -530,6 +530,7 @@ const de = {
             frontend: 'Frontend-Entwickler',
 
             uiux: 'UI/UX-Designer',
+            
         },
 
         experienceLabel: 'Berufserfahrung *',
@@ -615,6 +616,10 @@ const de = {
   frontend: 'Frontend-Entwicklung',
 
   uiux: 'UI/UX-Design',
+
+    dedicatedDeveloper: 'Engagierter Entwickler',
+
+    others: 'Andere Dienstleistungen',
 },
         messageLabel: 'Nachricht',
 

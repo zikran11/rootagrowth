@@ -530,6 +530,7 @@ const nl = {
             frontend: 'Frontend Ontwikkelaar',
 
             uiux: 'UI/UX Designer',
+            
         },
 
         experienceLabel: 'Ervaringsniveau *',
@@ -616,6 +617,10 @@ const nl = {
   frontend: 'Frontend ontwikkeling',
 
   uiux: 'UI/UX Design',
+
+    dedicatedDeveloper: 'Toegewijde ontwikkelaar',
+
+    others: 'Andere diensten',
 },
 
         messageLabel: 'Bericht',

@@ -48,7 +48,7 @@ export async function POST(req: Request) {
         await resend.emails.send({
             from: 'Roota Careers <onboarding@resend.dev>',
 
-            to: [' admin@roota.nl'], // ganti email kamu
+            to: ['admin@roota.nl'],
 
             replyTo: email,
 
