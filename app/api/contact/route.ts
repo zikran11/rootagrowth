@@ -16,7 +16,7 @@ export async function POST(req: Request) {
         } = body
 
         const data = await resend.emails.send({
-from: 'Roota Contact <noreply@roota.nl>',
+        from: 'Roota Contact <noreply@roota.nl>',
 
             to: ['ziikran123@gmail.com'],
 
