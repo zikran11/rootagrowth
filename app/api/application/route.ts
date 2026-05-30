@@ -46,7 +46,7 @@ export async function POST(req: Request) {
         }
 
         await resend.emails.send({
-            from: 'Roota Careers <onboarding@resend.dev>',
+from: 'Roota Contact <noreply@roota.nl>',
 
             to: ['admin@roota.nl'],
 
